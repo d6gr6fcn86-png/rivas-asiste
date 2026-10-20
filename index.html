@@ -106,7 +106,6 @@
             text-decoration: none;
         }
 
-        /* Logo ampliado para mejor presencia visual */
         .logo-container img {
             height: 65px;
             width: auto;
@@ -120,6 +119,7 @@
             letter-spacing: -0.5px;
         }
 
+        /* Menú de navegación principal */
         nav ul {
             display: flex;
             list-style: none;
@@ -161,6 +161,16 @@
             object-fit: contain;
             display: inline-block;
             vertical-align: middle;
+        }
+
+        /* Botón Hamburguesa (Oculto en Escritorio) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--dark);
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -370,7 +380,7 @@
             background-color: var(--primary-dark);
         }
 
-        /* Calculator Section */
+        /* Calculator Section Optimizada para Móvil */
         .calculator-section {
             background-color: var(--light);
             padding: 80px 5%;
@@ -380,7 +390,7 @@
             max-width: 800px;
             margin: 0 auto;
             background: var(--white);
-            padding: 40px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.06);
         }
@@ -391,6 +401,7 @@
             padding: 20px;
             margin-top: 25px;
             border-radius: 0 8px 8px 0;
+            overflow-x: auto;
         }
 
         .calc-result-box h3 {
@@ -400,8 +411,9 @@
         }
 
         .calc-prices {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 15px;
+            word-break: break-word;
         }
 
         .calc-prices span {
@@ -554,27 +566,35 @@
             object-fit: contain;
         }
 
+        /* Responsive Media Queries para el Menú Hamburguesa */
         @media (max-width: 768px) {
-            nav {
-                width: 100%;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
+            .menu-toggle {
+                display: block;
             }
             nav ul {
-                display: flex;
-                gap: 16px;
-                width: max-content;
-                padding-top: 10px;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.08);
+                padding: 20px 0;
+                gap: 15px;
+                text-align: center;
             }
-            nav a {
-                white-space: nowrap;
-                font-size: 0.9rem;
+            nav ul.active {
+                display: flex;
             }
             .nav-container {
-                flex-wrap: wrap;
+                position: relative;
             }
             .hero h1 {
                 font-size: 2.1rem;
+            }
+            .calc-container {
+                padding: 20px 15px;
             }
         }
     </style>
@@ -601,16 +621,20 @@
                 <img src="logoRivasAsiste.png" alt="Rivas Asiste - alquiler de material ortopédico" width="65" height="65" loading="eager">
                 <span class="logo-text">Rivas Asiste</span>
             </a>
+            <!-- Botón Hamburguesa para Móvil -->
+            <button class="menu-toggle" aria-label="Abrir menú de navegación" onclick="toggleMenu()">
+                ☰
+            </button>
             <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Catálogo</a></li>
-                    <li><a href="#calculadora">Calculadora</a></li>
-                    <li><a href="#presupuesto">Solicitar</a></li>
-                    <li><a href="#preguntas">Preguntas frecuentes</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                <ul id="nav-list">
+                    <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
+                    <li><a href="#servicios" onclick="closeMenu()">Catálogo</a></li>
+                    <li><a href="#calculadora" onclick="closeMenu()">Calculadora</a></li>
+                    <li><a href="#presupuesto" onclick="closeMenu()">Solicitar</a></li>
+                    <li><a href="#preguntas" onclick="closeMenu()">Preguntas frecuentes</a></li>
+                    <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
                     <li>
-                        <a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20información%20sobre%20alquiler%20de%20material%20ortopédico." class="btn-whatsapp-nav" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20información%20sobre%20alquiler%20de%20material%20ortopédico." class="btn-whatsapp-nav" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">
                             <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> WhatsApp
                         </a>
                     </li>
@@ -841,7 +865,7 @@
             </div>
         </section>
 
-        <!-- Sección de Contacto específica para que el enlace del menú superior navegue correctamente -->
+        <!-- Sección de Contacto específica -->
         <section id="contacto" class="contact-info-section">
             <div class="section-title">
                 <h2>Información de Contacto</h2>
@@ -905,6 +929,17 @@
     </noscript>
 
     <script>
+        // Funciones para controlar el menú hamburguesa en móviles
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.remove('active');
+        }
+
         const tarifas = {
             silla: {
                 nombre: "Silla de Ruedas Manual",
