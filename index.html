@@ -8,7 +8,7 @@
     <meta name="author" content="Rivas Asiste">
     <meta name="description" content="Alquiler de sillas de ruedas, andadores y muletas en Rivas-Vaciamadrid. Entrega a domicilio y servicio para viajeros en Atocha y Chamartín. Consulta precios y disponibilidad.">
     <link rel="canonical" href="https://rivasasiste.es/">
-    <link rel="icon" href="logoRivasAsiste.png" type="image/jpeg">
+    <link rel="icon" href="logoRivasAsiste.png" type="image/png">
     <title>Rivas Asiste | Alquiler de sillas de ruedas y muletas en Rivas</title>
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
@@ -93,7 +93,7 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 15px 5%;
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -106,8 +106,9 @@
             text-decoration: none;
         }
 
+        /* Logo ampliado para mejor presencia visual */
         .logo-container img {
-            height: 50px;
+            height: 65px;
             width: auto;
             object-fit: contain;
         }
@@ -451,6 +452,34 @@
             box-shadow: 0 0 0 3px rgba(0,119,130,0.1);
         }
 
+        /* Contact Section Details */
+        .contact-info-section {
+            background-color: var(--light);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .contact-info-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -569,7 +598,7 @@
     <header>
         <div class="nav-container">
             <a href="#inicio" class="logo-container" aria-label="Rivas Asiste - inicio">
-                <img src="logoRivasAsiste.png" alt="Rivas Asiste - alquiler de material ortopédico" width="50" height="50" loading="eager">
+                <img src="logoRivasAsiste.png" alt="Rivas Asiste - alquiler de material ortopédico" width="65" height="65" loading="eager">
                 <span class="logo-text">Rivas Asiste</span>
             </a>
             <nav>
@@ -590,229 +619,256 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Alquiler de sillas de ruedas en Rivas-Vaciamadrid</h1>
-            <p>Alquiler de sillas de ruedas, andadores y muletas con entrega a domicilio en Rivas-Vaciamadrid y servicio para viajeros en Atocha y Chamartín.</p>
-            <div class="hero-buttons">
-                <a href="#calculadora" class="btn btn-primary">🧮 Calcular Precio Online</a>
-                <a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20información%20sobre%20alquiler%20de%20material%20ortopédico." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                    <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> Asistencia Viajeros AVE
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Bar -->
-    <div class="trust-bar">
-        <div class="trust-grid">
-            <div class="trust-item">
-                <h3>🚄 Servicio en Estaciones AVE</h3>
-                <p>Entrega personalizada en Atocha y Chamartín para tu llegada o salida.</p>
-            </div>
-            <div class="trust-item">
-                <h3>✨ Equipos Desinfectados</h3>
-                <p>Materiales totalmente revisados, higienizados y listos para su uso seguro.</p>
-            </div>
-            <div class="trust-item">
-                <h3>🚚 Entrega Rápida a Domicilio</h3>
-                <p>Disponibilidad inmediata en Rivas-Vaciamadrid y municipios cercanos.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Services Section -->
-    <section id="servicios" class="section">
-        <div class="section-title">
-            <h2>Catálogo de Alquiler y Ortopedia</h2>
-            <p>Disponemos de stock de material ortopédico para alquiler flexible por días o semanas.</p>
-        </div>
-
-        <div class="services-grid">
-            <!-- Silla de ruedas -->
-            <div class="service-card">
-                <div class="service-img-placeholder">
-                    <img src="silla-de-ruedas.png" alt="Alquiler de sillas de ruedas en Rivas-Vaciamadrid" width="400" height="180" loading="lazy">
-                </div>
-                <div class="service-content">
-                    <div>
-                        <h3>Sillas de Ruedas Manuales</h3>
-                        <p>Ligeras, plegables y cómodas. Tarifa económica desde 6€ el primer día.</p>
-                    </div>
-                    <div class="service-footer">
-                        <span class="price">Desde 6,00 €</span>
-                        <a href="#calculadora" class="btn-sm">Calcular</a>
-                    </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Alquiler de sillas de ruedas en Rivas-Vaciamadrid</h1>
+                <p>Alquiler de sillas de ruedas, andadores y muletas con entrega a domicilio en Rivas-Vaciamadrid y servicio para viajeros en Atocha y Chamartín.</p>
+                <div class="hero-buttons">
+                    <a href="#calculadora" class="btn btn-primary">🧮 Calcular Precio Online</a>
+                    <a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20información%20sobre%20alquiler%20de%20material%20ortopédico." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> Asistencia Viajeros AVE
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <!-- Andadores -->
-            <div class="service-card">
-                <div class="service-img-placeholder">
-                    <img src="andador-rollator.png" alt="Alquiler de andadores y rollators en Rivas-Vaciamadrid" width="400" height="180" loading="lazy">
+        <!-- Trust Bar -->
+        <div class="trust-bar">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <h3>🚄 Servicio en Estaciones AVE</h3>
+                    <p>Entrega personalizada en Atocha y Chamartín para tu llegada o salida.</p>
                 </div>
-                <div class="service-content">
-                    <div>
-                        <h3>Andadores y Rollators</h3>
-                        <p>Estabilidad y seguridad para paseos y desplazamientos diarios dentro y fuera del hogar.</p>
+                <div class="trust-item">
+                    <h3>✨ Equipos Desinfectados</h3>
+                    <p>Materiales totalmente revisados, higienizados y listos para su uso seguro.</p>
+                </div>
+                <div class="trust-item">
+                    <h3>🚚 Entrega Rápida a Domicilio</h3>
+                    <p>Disponibilidad inmediata en Rivas-Vaciamadrid y municipios cercanos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <section id="servicios" class="section">
+            <div class="section-title">
+                <h2>Catálogo de Alquiler y Ortopedia</h2>
+                <p>Disponemos de stock de material ortopédico para alquiler flexible por días o semanas.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Silla de ruedas -->
+                <div class="service-card">
+                    <div class="service-img-placeholder">
+                        <img src="silla-de-ruedas.png" alt="Alquiler de sillas de ruedas en Rivas-Vaciamadrid" width="400" height="180" loading="lazy">
                     </div>
-                    <div class="service-footer">
-                        <span class="price">Alquiler flexible</span>
-                        <a href="#calculadora" class="btn-sm">Calcular</a>
+                    <div class="service-content">
+                        <div>
+                            <h3>Sillas de Ruedas Manuales</h3>
+                            <p>Ligeras, plegables y cómodas. Tarifa económica desde 6€ el primer día.</p>
+                        </div>
+                        <div class="service-footer">
+                            <span class="price">Desde 6,00 €</span>
+                            <a href="#calculadora" class="btn-sm">Calcular</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Muletas -->
-            <div class="service-card">
-                <div class="service-img-placeholder">
-                    <img src="muletas-bastones.png" alt="Alquiler de muletas y bastones en Rivas-Vaciamadrid" width="400" height="180" loading="lazy">
-                </div>
-                <div class="service-content">
-                    <div>
-                        <h3>Muletas y Bastones</h3>
-                        <p>Soportes ergonómicos y ajustables para apoyo temporal tras lesiones o intervenciones.</p>
+                <!-- Andadores -->
+                <div class="service-card">
+                    <div class="service-img-placeholder">
+                        <img src="andador-rollator.png" alt="Alquiler de andadores y rollators en Rivas-Vaciamadrid" width="400" height="180" loading="lazy">
                     </div>
-                    <div class="service-footer">
-                        <span class="price">Disponibilidad inmediata</span>
-                        <a href="#calculadora" class="btn-sm">Calcular</a>
+                    <div class="service-content">
+                        <div>
+                            <h3>Andadores y Rollators</h3>
+                            <p>Estabilidad y seguridad para paseos y desplazamientos diarios dentro y fuera del hogar.</p>
+                        </div>
+                        <div class="service-footer">
+                            <span class="price">Alquiler flexible</span>
+                            <a href="#calculadora" class="btn-sm">Calcular</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Muletas -->
+                <div class="service-card">
+                    <div class="service-img-placeholder">
+                        <img src="muletas-bastones.png" alt="Alquiler de muletas y bastones en Rivas-Vaciamadrid" width="400" height="180" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <div>
+                            <h3>Muletas y Bastones</h3>
+                            <p>Soportes ergonómicos y ajustables para apoyo temporal tras lesiones o intervenciones.</p>
+                        </div>
+                        <div class="service-footer">
+                            <span class="price">Disponibilidad inmediata</span>
+                            <a href="#calculadora" class="btn-sm">Calcular</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Calculator Section -->
-    <section id="calculadora" class="calculator-section">
-        <div class="section-title">
-            <h2>Calculadora de Presupuestos</h2>
-            <p>Calcula el importe de tu alquiler al instante según el periodo y el punto de entrega seleccionado.</p>
-        </div>
-
-        <div class="calc-container">
-            <div class="form-group">
-                <label for="calc-producto">Selecciona el Producto:</label>
-                <select id="calc-producto" class="form-control" onchange="calcularPrecio()">
-                    <option value="silla">Silla de Ruedas Manual</option>
-                    <option value="andador">Andador / Rollator</option>
-                    <option value="muletas">Muletas / Bastones</option>
-                </select>
+        <!-- Calculator Section -->
+        <section id="calculadora" class="calculator-section">
+            <div class="section-title">
+                <h2>Calculadora de Presupuestos</h2>
+                <p>Calcula el importe de tu alquiler al instante según el periodo y el punto de entrega seleccionado.</p>
             </div>
 
-            <div class="form-group">
-                <label for="calc-periodo">Selecciona el Periodo:</label>
-                <select id="calc-periodo" class="form-control" onchange="calcularPrecio()">
-                    <option value="1">1 Día</option>
-                    <option value="3">3 Días</option>
-                    <option value="7">1 Semana (7 Días)</option>
-                    <option value="15">15 Días</option>
-                    <option value="30">1 Mes (30 Días)</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="calc-transporte">Lugar de Entrega y Recogida:</label>
-                <select id="calc-transporte" class="form-control" onchange="calcularPrecio()">
-                    <option value="22">Servicio urgente a domicilio en Rivas (+22,00 €)</option>
-                    <option value="35">Entrega especial Estaciones AVE (Atocha / Chamartín) (+35,00 €)</option>
-                    <option value="0">Recogida en local (0,00 €)</option>
-                </select>
-            </div>
-
-            <div class="calc-result-box">
-                <h3>Resumen Estimado</h3>
-                <div class="calc-prices">
-                    <p>Alquiler material: <span id="res-alquiler">6,00 €</span></p>
-                    <p>Transporte / Logística: <span id="res-transporte">22,00 €</span></p>
-                    <p>Fianza reembolsable: <span id="res-fianza">25,00 €</span></p>
-                    <hr style="margin: 10px 0; border:0; border-top:1px solid #ccc;">
-                    <p style="font-size: 1.25rem; color: var(--primary);"><strong>Total a Pagar (Aprox): <span id="res-total">28,00 €</span></strong></p>
-                </div>
-                <button onclick="enviarCalculoWhatsApp()" class="btn btn-whatsapp" style="width: 100%; justify-content: center; margin-top: 10px;">
-                    <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> Solicitar este presupuesto por WhatsApp
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Budget / Presupuesto Form Section -->
-    <section id="presupuesto" class="budget-section">
-        <div class="section-title">
-            <h2>Solicita tu Reserva o Consulta Directa</h2>
-            <p>¿Viajas en AVE o necesitas asistencia? Rellena este formulario rápido.</p>
-        </div>
-
-        <div class="budget-container">
-            <form onsubmit="enviarWhatsAppForm(event)">
+            <div class="calc-container">
                 <div class="form-group">
-                    <label for="nombre">Nombre y Apellidos</label>
-                    <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="telefono">Teléfono de contacto</label>
-                    <input type="tel" id="telefono" class="form-control" placeholder="Ej. 601 235 215" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="producto">Producto o Servicio que necesitas</label>
-                    <select id="producto" class="form-control">
-                        <option value="Silla de ruedas manual">Silla de ruedas manual</option>
-                        <option value="Andador / Rollator">Andador / Rollator</option>
-                        <option value="Muletas / Bastones">Muletas / Bastones</option>
-                        <option value="Entrega en Estación AVE (Atocha/Chamartín)">Entrega en Estación AVE (Atocha / Chamartín)</option>
+                    <label for="calc-producto">Selecciona el Producto:</label>
+                    <select id="calc-producto" class="form-control" onchange="calcularPrecio()">
+                        <option value="silla">Silla de Ruedas Manual</option>
+                        <option value="andador">Andador / Rollator</option>
+                        <option value="muletas">Muletas / Bastones</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="comentarios">Detalles del viaje (Nº de tren, hora de llegada, estación...)</label>
-                    <textarea id="comentarios" class="form-control" rows="4" placeholder="Indícanos si llegas a Atocha o Chamartín y la hora aproximada..."></textarea>
+                    <label for="calc-periodo">Selecciona el Periodo:</label>
+                    <select id="calc-periodo" class="form-control" onchange="calcularPrecio()">
+                        <option value="1">1 Día</option>
+                        <option value="3">3 Días</option>
+                        <option value="7">1 Semana (7 Días)</option>
+                        <option value="15">15 Días</option>
+                        <option value="30">1 Mes (30 Días)</option>
+                    </select>
                 </div>
 
-                <button type="submit" class="btn btn-whatsapp" style="width: 100%; justify-content: center; font-size: 1.1rem;">
-                    <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> Enviar Solicitud por WhatsApp
-                </button>
-            </form>
-        </div>
-    </section>
+                <div class="form-group">
+                    <label for="calc-transporte">Lugar de Entrega y Recogida:</label>
+                    <select id="calc-transporte" class="form-control" onchange="calcularPrecio()">
+                        <option value="22">Servicio urgente a domicilio en Rivas (+22,00 €)</option>
+                        <option value="35">Entrega especial Estaciones AVE (Atocha / Chamartín) (+35,00 €)</option>
+                        <option value="0">Recogida en local (0,00 €)</option>
+                    </select>
+                </div>
 
-    <!-- FAQ -->
-    <section id="preguntas" class="section" aria-labelledby="faq-title">
-        <div class="section-title">
-            <h2 id="faq-title">Preguntas frecuentes sobre el alquiler</h2>
-            <p>Información rápida antes de reservar tu material de movilidad.</p>
-        </div>
-        <div class="services-grid">
-            <article class="service-card">
-                <div class="service-content">
-                    <h3>¿Dónde alquiláis sillas de ruedas?</h3>
-                    <p>Prestamos servicio en Rivas-Vaciamadrid y ofrecemos opciones de entrega y recogida para viajeros en las estaciones de Atocha y Chamartín.</p>
+                <div class="calc-result-box">
+                    <h3>Resumen Estimado</h3>
+                    <div class="calc-prices">
+                        <p>Alquiler material: <span id="res-alquiler">6,00 €</span></p>
+                        <p>Transporte / Logística: <span id="res-transporte">22,00 €</span></p>
+                        <p>Fianza reembolsable: <span id="res-fianza">25,00 €</span></p>
+                        <hr style="margin: 10px 0; border:0; border-top:1px solid #ccc;">
+                        <p style="font-size: 1.25rem; color: var(--primary);"><strong>Total a Pagar (Aprox): <span id="res-total">28,00 €</span></strong></p>
+                    </div>
+                    <button onclick="enviarCalculoWhatsApp()" class="btn btn-whatsapp" style="width: 100%; justify-content: center; margin-top: 10px;">
+                        <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> Solicitar este presupuesto por WhatsApp
+                    </button>
                 </div>
-            </article>
-            <article class="service-card">
-                <div class="service-content">
-                    <h3>¿Puedo alquilar por pocos días?</h3>
-                    <p>Sí. La calculadora permite consultar periodos de 1, 3, 7, 15 y 30 días. El precio final depende del material y del servicio de entrega elegido.</p>
+            </div>
+        </section>
+
+        <!-- Budget / Presupuesto Form Section -->
+        <section id="presupuesto" class="budget-section">
+            <div class="section-title">
+                <h2>Solicita tu Reserva o Consulta Directa</h2>
+                <p>¿Viajas en AVE o necesitas asistencia? Rellena este formulario rápido.</p>
+            </div>
+
+            <div class="budget-container">
+                <form onsubmit="enviarWhatsAppForm(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre y Apellidos</label>
+                        <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono de contacto</label>
+                        <input type="tel" id="telefono" class="form-control" placeholder="Ej. 601 235 215" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="producto">Producto o Servicio que necesitas</label>
+                        <select id="producto" class="form-control">
+                            <option value="Silla de ruedas manual">Silla de ruedas manual</option>
+                            <option value="Andador / Rollator">Andador / Rollator</option>
+                            <option value="Muletas / Bastones">Muletas / Bastones</option>
+                            <option value="Entrega en Estación AVE (Atocha/Chamartín)">Entrega en Estación AVE (Atocha / Chamartín)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comentarios">Detalles del viaje (Nº de tren, hora de llegada, estación...)</label>
+                        <textarea id="comentarios" class="form-control" rows="4" placeholder="Indícanos si llegas a Atocha o Chamartín y la hora aproximada..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-whatsapp" style="width: 100%; justify-content: center; font-size: 1.1rem;">
+                        <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> Enviar Solicitud por WhatsApp
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="preguntas" class="section" aria-labelledby="faq-title">
+            <div class="section-title">
+                <h2 id="faq-title">Preguntas frecuentes sobre el alquiler</h2>
+                <p>Información rápida antes de reservar tu material de movilidad.</p>
+            </div>
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-content">
+                        <h3>¿Dónde alquiláis sillas de ruedas?</h3>
+                        <p>Prestamos servicio en Rivas-Vaciamadrid y ofrecemos opciones de entrega y recogida para viajeros en las estaciones de Atocha y Chamartín.</p>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-content">
+                        <h3>¿Puedo alquilar por pocos días?</h3>
+                        <p>Sí. La calculadora permite consultar periodos de 1, 3, 7, 15 y 30 días. El precio final depende del material y del servicio de entrega elegido.</p>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-content">
+                        <h3>¿Tenéis entrega a domicilio?</h3>
+                        <p>Sí, disponemos de servicio de entrega urgente a domicilio en Rivas-Vaciamadrid. Consulta disponibilidad antes de desplazarte.</p>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <div class="service-content">
+                        <h3>¿Cómo solicito una reserva?</h3>
+                        <p>Puedes calcular un presupuesto online y enviarlo por WhatsApp, o utilizar el formulario de solicitud para indicar el producto y los detalles de tu viaje.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto específica para que el enlace del menú superior navegue correctamente -->
+        <section id="contacto" class="contact-info-section">
+            <div class="section-title">
+                <h2>Información de Contacto</h2>
+                <p>Atención directa y personalizada para resolver tus dudas de movilidad.</p>
+            </div>
+            <div class="contact-info-grid">
+                <div class="contact-card">
+                    <h3>📞 Teléfono Directo</h3>
+                    <p><a href="tel:601235215" style="color: var(--primary); font-weight: bold; text-decoration: none;">601 235 215</a></p>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">Llamadas y urgencias de lunes a viernes.</p>
                 </div>
-            </article>
-            <article class="service-card">
-                <div class="service-content">
-                    <h3>¿Tenéis entrega a domicilio?</h3>
-                    <p>Sí, disponemos de servicio de entrega urgente a domicilio en Rivas-Vaciamadrid. Consulta disponibilidad antes de desplazarte.</p>
+                <div class="contact-card">
+                    <h3>💬 WhatsApp Rápido</h3>
+                    <p><a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20información%20sobre%20alquiler%20de%20material%20ortopédico." target="_blank" rel="noopener noreferrer" style="color: var(--secondary); font-weight: bold; text-decoration: none;">Escribir por WhatsApp</a></p>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">Respuesta ágil para reservas y entregas.</p>
                 </div>
-            </article>
-            <article class="service-card">
-                <div class="service-content">
-                    <h3>¿Cómo solicito una reserva?</h3>
-                    <p>Puedes calcular un presupuesto online y enviarlo por WhatsApp, o utilizar el formulario de solicitud para indicar el producto y los detalles de tu viaje.</p>
+                <div class="contact-card">
+                    <h3>✉️ Correo Electrónico</h3>
+                    <p><a href="mailto:jorgempleo@hotmail.es" style="color: var(--dark); font-weight: bold; text-decoration: none;">jorgempleo@hotmail.es</a></p>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">Consultas generales y presupuestos a medida.</p>
                 </div>
-            </article>
-        </div>
-    </section>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer id="contacto">
+    <footer>
         <div class="footer-content">
             <div class="footer-col">
                 <h4>Rivas Asiste</h4>
