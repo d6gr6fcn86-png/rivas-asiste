@@ -495,6 +495,35 @@
             color: #8a9ba8;
         }
 
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.3s, background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #1EBE5D;
+        }
+
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
         @media (max-width: 768px) {
             nav {
                 width: 100%;
@@ -800,6 +829,11 @@
             <p>&copy; 2026 Rivas Asiste (www.rivasasiste.es). Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- Botón Flotante WhatsApp con tu archivo SVG -->
+    <a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20información." class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp" rel="noopener noreferrer">
+        <img src="whatsapp.svg" alt="WhatsApp">
+    </a>
 
     <noscript>
         <div style="padding:16px;text-align:center;background:#fff3cd;color:#664d03;">
