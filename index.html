@@ -908,7 +908,7 @@
             color: var(--primary-dark);
         }
 
-        /* Footer */
+        /* Footer Reset & Estilos de Enlaces/Botones */
         footer {
             background: var(--dark);
             color: var(--white);
@@ -942,7 +942,7 @@
             border-radius: 2px;
         }
 
-        .footer-col p, .footer-col a {
+        .footer-col p, .footer-col a, .footer-col .footer-btn {
             color: var(--slate-400);
             font-size: 0.925rem;
             text-decoration: none;
@@ -951,16 +951,21 @@
             align-items: center;
             gap: 10px;
             transition: var(--transition);
-            cursor: pointer;
             background: none;
             border: none;
             padding: 0;
             font-family: inherit;
+            cursor: pointer;
+            box-shadow: none;
+            outline: none;
             text-align: left;
+            border-radius: 0;
         }
 
-        .footer-col a:hover, .footer-col button:hover {
+        .footer-col a:hover, .footer-col .footer-btn:hover {
             color: var(--white);
+            text-decoration: underline;
+            background: none;
         }
 
         .footer-bottom {
@@ -973,7 +978,7 @@
             color: var(--slate-400);
         }
 
-        /* Floating WhatsApp Glassmorphism Button */
+        /* Floating Glassmorphism WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 32px;
@@ -1417,7 +1422,7 @@
         </section>
     </main>
 
-    <!-- Modal de Política de Privacidad (Oculto por defecto, se abre de forma flotante) -->
+    <!-- Modal de Política de Privacidad -->
     <div class="modal-overlay" id="privacyModal" onclick="handleModalOutsideClick(event)">
         <div class="modal-container">
             <div class="modal-header">
@@ -1451,7 +1456,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer Depurado -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -1465,7 +1470,7 @@
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>
-                <button type="button" onclick="openPrivacyModal()" style="color: var(--slate-400); font-size: 0.925rem; text-decoration: none; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; cursor: pointer;">Política de Privacidad</button>
+                <button type="button" class="footer-btn" onclick="openPrivacyModal()">Política de Privacidad</button>
                 <p>Rivas-Vaciamadrid &amp; Madrid</p>
             </div>
         </div>
@@ -1563,7 +1568,7 @@
             const fianzaVal = document.getElementById('res-fianza').innerText;
             const totalVal = document.getElementById('res-total').innerText;
 
-            const texto = `Hola, he calculado una tarifa en su sitio web:\n\n` +
+            const texto = `Hola, he calculated una tarifa en su sitio web:\n\n` +
                           `• *Producto:* ${productoNombre}\n` +
                           `• *Duración:* ${periodoTexto}\n` +
                           `• *Entrega:* ${transporteTexto}\n\n` +
