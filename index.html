@@ -495,32 +495,33 @@
             color: #8a9ba8;
         }
 
-        /* Floating WhatsApp Button */
+        /* Floating WhatsApp Button - Fondo blanco con sombra para resaltar el SVG verde */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #25D366;
+            background-color: #FFFFFF;
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
             z-index: 1000;
-            transition: transform 0.3s, background-color 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
+            border: 1px solid #E0E0E0;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1);
-            background-color: #1EBE5D;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.35);
         }
 
         .whatsapp-float img {
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             object-fit: contain;
         }
 
@@ -830,7 +831,7 @@
         </div>
     </footer>
 
-    <!-- Botón Flotante WhatsApp con tu archivo SVG -->
+    <!-- Botón Flotante con fondo blanco elegante -->
     <a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20información." class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp" rel="noopener noreferrer">
         <img src="whatsapp.svg" alt="WhatsApp">
     </a>
