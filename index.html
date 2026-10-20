@@ -179,6 +179,12 @@
             background-color: #1EBE5D;
         }
 
+        .whatsapp-icon-btn {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(0,119,130,0.9), rgba(46,139,87,0.85)), url('RivasAsiste.jpg') center/cover no-repeat;
@@ -240,6 +246,10 @@
         .btn-whatsapp {
             background-color: #25D366;
             color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1EBE5D;
         }
 
         /* Features / Trust Bar */
@@ -514,22 +524,27 @@
             bottom: 30px;
             right: 30px;
             background-color: #25D366;
-            color: white;
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 100;
-            transition: transform 0.3s;
+            z-index: 1000;
+            transition: transform 0.3s, background-color 0.3s;
             text-decoration: none;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1);
+            background-color: #1EBE5D;
+        }
+
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
         }
 
         @media (max-width: 768px) {
@@ -601,7 +616,7 @@
                     <li><a href="#contacto">Contacto</a></li>
                     <li>
                         <a href="https://wa.me/34601235215?text=Hola,%20necesito%20información%20sobre%20alquiler%20de%20material%20ortopédico." class="btn-whatsapp-nav" target="_blank" rel="noopener noreferrer">
-                            💬 WhatsApp
+                            <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> WhatsApp
                         </a>
                     </li>
                 </ul>
@@ -617,7 +632,7 @@
             <div class="hero-buttons">
                 <a href="#calculadora" class="btn btn-primary">🧮 Calcular Precio Online</a>
                 <a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20una%20silla%20de%20ruedas." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                    💬 Asistencia Viajeros AVE
+                    <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> Asistencia Viajeros AVE
                 </a>
             </div>
         </div>
@@ -743,7 +758,7 @@
                     <p style="font-size: 1.25rem; color: var(--primary);"><strong>Total a Pagar (Aprox): <span id="res-total">28,00 €</span></strong></p>
                 </div>
                 <button onclick="enviarCalculoWhatsApp()" class="btn btn-whatsapp" style="width: 100%; justify-content: center; margin-top: 10px;">
-                    💬 Solicitar este presupuesto por WhatsApp
+                    <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> Solicitar este presupuesto por WhatsApp
                 </button>
             </div>
         </div>
@@ -784,14 +799,13 @@
                 </div>
 
                 <button type="submit" class="btn btn-whatsapp" style="width: 100%; justify-content: center; font-size: 1.1rem;">
-                    💬 Enviar Solicitud por WhatsApp
+                    <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-btn"> Enviar Solicitud por WhatsApp
                 </button>
             </form>
         </div>
     </section>
 
-
-    <!-- FAQ: contenido útil para usuarios y buscadores -->
+    <!-- FAQ -->
     <section id="preguntas" class="section" aria-labelledby="faq-title">
         <div class="section-title">
             <h2 id="faq-title">Preguntas frecuentes sobre el alquiler</h2>
@@ -851,9 +865,9 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20información." class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">
-        💬
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/34601235215?text=Hola,%20viajo%20en%20AVE%20y%20necesito%20información." class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp" rel="noopener noreferrer">
+        <img src="whatsapp.svg" alt="WhatsApp">
     </a>
 
     <noscript>
