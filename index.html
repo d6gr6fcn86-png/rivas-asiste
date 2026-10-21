@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#006D77">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="author" content="Rivas Asiste">
-    <meta name="description" content="Alquiler de sillas de ruedas, andadores y muletas en Rivas-Vaciamadrid. Servicio directo para viajeros en estaciones AVE Atocha y Chamartín.">
+    <meta name="description" content="Alquiler de sillas de ruedas, andadores y muletas en Rivas-Vaciamadrid. Entrega a domicilio y en las estaciones AVE de Atocha y Chamartín, sujeta a disponibilidad.">
     <link rel="canonical" href="https://rivasasiste.es/">
     <link rel="icon" href="logoRivasAsiste.png" type="image/png">
-    <title>Rivas Asiste | Alquiler de Sillas de Ruedas y Ortopedia en Rivas</title>
+    <title>Rivas Asiste | Alquiler de Sillas de Ruedas, Andadores y Muletas en Rivas</title>
     
     <!-- Open Graph & Twitter -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
     <meta property="og:site_name" content="Rivas Asiste">
-    <meta property="og:title" content="Rivas Asiste | Alquiler de Material Ortopédico de Alta Gama">
-    <meta property="og:description" content="Alquiler de sillas de ruedas, andadores y muletas con entrega a domicilio y servicio VIP para viajeros en las estaciones de Atocha y Chamartín.">
+    <meta property="og:title" content="Rivas Asiste | Alquiler de Sillas de Ruedas, Andadores y Muletas">
+    <meta property="og:description" content="Alquiler de sillas de ruedas, andadores y muletas con entrega a domicilio y en las estaciones de Atocha y Chamartín, sujeta a disponibilidad.">
     <meta property="og:url" content="https://rivasasiste.es/">
     <meta property="og:image" content="https://rivasasiste.es/RivasAsiste.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rivas Asiste | Alquiler de Sillas de Ruedas, Andadores y Muletas">
+    <meta name="twitter:description" content="Alquiler en Rivas-Vaciamadrid con entrega a domicilio y en las estaciones AVE de Atocha y Chamartín.">
+    <meta name="twitter:image" content="https://rivasasiste.es/RivasAsiste.jpg">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Tipografía del sistema: sin recursos de terceros -->
 
     <!-- Schema.org Data -->
     <script type="application/ld+json">
@@ -39,7 +40,9 @@
           "image": "https://rivasasiste.es/RivasAsiste.jpg",
           "telephone": "+34601235215",
           "email": "jorgempleo@hotmail.es",
-          "description": "Alquiler de material ortopédico, sillas de ruedas, andadores y muletas en Rivas-Vaciamadrid, con servicio VIP para viajeros en Atocha y Chamartín.",
+          "priceRange": "€",
+          "address": {"@type": "PostalAddress", "addressLocality": "Rivas-Vaciamadrid", "addressRegion": "Madrid", "addressCountry": "ES"},
+          "description": "Alquiler de sillas de ruedas, andadores y muletas en Rivas-Vaciamadrid, con entrega a domicilio y en las estaciones de Atocha y Chamartín, sujeta a disponibilidad.",
           "areaServed": [
             {"@type": "City", "name": "Rivas-Vaciamadrid"},
             {"@type": "City", "name": "Madrid"}
@@ -52,6 +55,36 @@
           "name": "Rivas Asiste",
           "publisher": {"@id": "https://rivasasiste.es/#business"},
           "inLanguage": "es-ES"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://rivasasiste.es/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Cómo funciona el servicio en las estaciones AVE?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nos coordinamos previamente con el horario de su tren en Madrid Puerta de Atocha o Chamartín para entregarle el material en el punto de encuentro convenido, sujeto a disponibilidad."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Existe un periodo mínimo de alquiler?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Puede alquilar desde un único día. Disponemos de tarifas por 1, 3, 7, 15 y 30 días."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuál es el importe de la fianza?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Se requiere una fianza reembolsable de entre 10 € y 25 € según el producto. Se devuelve al finalizar el alquiler, una vez comprobado el estado del equipo, descontando en su caso los importes justificados por daños, pérdida o penalizaciones previstos en las Condiciones del Servicio."
+              }
+            }
+          ]
         }
       ]
     }
@@ -65,7 +98,7 @@
             --secondary: #1D3557;
             --accent: #D4AF37;
             --accent-soft: #F9F5EA;
-            --whatsapp-color: #128C7E;
+            --whatsapp-color: #0A7A6D;
             --whatsapp-dark: #075E54;
             --dark: #0F172A;
             --slate-600: #475569;
@@ -95,7 +128,7 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             color: var(--dark);
             background-color: var(--light);
             line-height: 1.6;
@@ -104,7 +137,7 @@
         }
 
         h1, h2, h3, .heading-font {
-            font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             letter-spacing: -0.02em;
         }
 
@@ -553,7 +586,7 @@
             display: block;
             font-size: 1.25rem;
             color: var(--primary);
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         /* Calculator Section */
@@ -668,7 +701,7 @@
 
         .res-row strong {
             color: var(--white);
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.05rem;
         }
 
@@ -694,7 +727,7 @@
             font-size: 2rem;
             font-weight: 800;
             color: var(--accent);
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         /* Budget / Request Form */
@@ -1263,6 +1296,15 @@
                 height: 54px;
             }
         }
+    
+        /* --- Cumplimiento / accesibilidad --- */
+        .form-hint { display:block; margin-top:6px; font-size:.8rem; color:var(--slate-600); }
+        .form-privacy-info { font-size:.78rem; line-height:1.5; color:var(--slate-600); margin:0 0 18px; padding:12px 14px; background:var(--slate-100); border-radius:var(--radius-sm); }
+        .form-privacy-info a, .form-privacy-info .privacy-link-btn { color:var(--primary-dark); }
+        .calc-note { margin-top:14px; font-size:.78rem; line-height:1.5; opacity:.85; }
+        .modal-body ul { margin:8px 0 14px 22px; }
+        .modal-body li { margin-bottom:6px; }
+        .modal-body mark { background:#FFF3B0; color:#000; padding:0 4px; border-radius:3px; }
     </style>
 </head>
 <body>
@@ -1271,7 +1313,7 @@
     <header>
         <div class="nav-container">
             <a href="#inicio" class="logo-container" aria-label="Rivas Asiste - Inicio">
-                <img src="logoRivasAsiste.png" alt="Rivas Asiste - Alquiler Ortopédico" width="52" height="52" loading="eager">
+                <img src="logoRivasAsiste.png" alt="Rivas Asiste - Alquiler de sillas de ruedas, andadores y muletas" width="52" height="52" loading="eager">
                 <span class="logo-text">Rivas<span>Asiste</span></span>
             </a>
 
@@ -1293,7 +1335,7 @@
                     <li><a href="#preguntas" onclick="closeMenu()">Preguntas</a></li>
                     <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
                     <li>
-                        <a href="https://wa.me/34601235215?text=Hola,%20deseo%20información%20sobre%20el%20alquiler%20de%20material%20ortopédico." class="btn btn-whatsapp btn-nav" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">
+                        <a href="https://wa.me/34601235215?text=Hola,%20deseo%20información%20sobre%20el%20alquiler%20de%20sillas%20de%20ruedas,%20andadores%20o%20muletas." class="btn btn-whatsapp btn-nav" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">
                             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.55 0 8.24 3.69 8.24 8.24 0 2.2-.86 4.27-2.42 5.83a8.192 8.192 0 0 1-5.82 2.41c-1.48 0-2.93-.39-4.2-1.14l-.3-.18-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.38c0-4.55 3.69-8.24 8.25-8.24zm4.52 10.23c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.18-.54.06s-1.05-.39-2-1.23c-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.42.08-.17.04-.32-.02-.45s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.76 2.68 4.26 3.76.6.26 1.06.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.11-.22-.18-.47-.31z"/></svg> WhatsApp
                         </a>
                     </li>
@@ -1307,10 +1349,10 @@
         <section id="inicio" class="hero">
             <div class="hero-content">
                 <div class="badge-premium">
-                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> Servicio Premium | Tarifas Actualizadas
+                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> Tarifas claras | Sin periodo mínimo
                 </div>
-                <h1>Alquiler de Material Ortopédico en Rivas</h1>
-                <p>Sillas de ruedas, andadores y muletas con entrega urgente a domicilio en Rivas-Vaciamadrid y recepción personalizada en las estaciones AVE de Atocha y Chamartín.</p>
+                <h1>Alquiler de Sillas de Ruedas, Andadores y Muletas en Rivas</h1>
+                <p>Sillas de ruedas, andadores y muletas con entrega a domicilio en Rivas-Vaciamadrid y entrega en las estaciones AVE de Atocha y Chamartín, previa coordinación y sujeta a disponibilidad.</p>
                 
                 <div class="hero-buttons">
                     <a href="#calculadora" class="btn btn-primary">
@@ -1332,7 +1374,7 @@
                     </div>
                     <div>
                         <h3>Estaciones AVE</h3>
-                        <p>Entrega y recogida directa en Atocha y Chamartín.</p>
+                        <p>Entrega y recogida en Atocha y Chamartín, previa coordinación.</p>
                     </div>
                 </div>
 
@@ -1341,8 +1383,8 @@
                         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8s0 0 0 0z"/></svg>
                     </div>
                     <div>
-                        <h3>Higienización Médica</h3>
-                        <p>Material desinfectado y revisado bajo protocolo estricto.</p>
+                        <h3>Higienización</h3>
+                        <p>Material higienizado antes de cada alquiler.</p>
                     </div>
                 </div>
 
@@ -1352,7 +1394,7 @@
                     </div>
                     <div>
                         <h3>Entrega Rápida</h3>
-                        <p>Disponibilidad inmediata en Rivas-Vaciamadrid y entorno.</p>
+                        <p>Entrega ágil en Rivas-Vaciamadrid y entorno, sujeta a disponibilidad.</p>
                     </div>
                 </div>
             </div>
@@ -1374,7 +1416,7 @@
                     <div class="service-card-body">
                         <div>
                             <h3>Sillas de Ruedas Manuales</h3>
-                            <p>Ultraligeras, fácilmente plegables y con máxima maniobrabilidad para vehículos o transporte público.</p>
+                            <p>Plegables y fáciles de transportar en vehículo o transporte público (según modelo disponible).</p>
                         </div>
                         <div class="service-card-footer">
                             <div class="price-tag">
@@ -1393,7 +1435,7 @@
                     <div class="service-card-body">
                         <div>
                             <h3>Andadores y Rollators</h3>
-                            <p>Sistemas de apoyo de alta estabilidad con frenos de seguridad, asiento cómodo y cesta de transporte.</p>
+                            <p>Andadores y rollators con frenos, asiento y cesta de transporte (según modelo disponible).</p>
                         </div>
                         <div class="service-card-footer">
                             <div class="price-tag">
@@ -1412,7 +1454,7 @@
                     <div class="service-card-body">
                         <div>
                             <h3>Muletas y Bastones</h3>
-                            <p>Soportes de apoyo anatómicos regulables en altura, ideales para procesos de rehabilitación o lesiones.</p>
+                            <p>Muletas y bastones regulables en altura (según modelo disponible).</p>
                         </div>
                         <div class="service-card-footer">
                             <div class="price-tag">
@@ -1429,7 +1471,7 @@
         <section id="calculadora" class="calculator-wrapper">
             <div class="section-header">
                 <h2>Calculadora de Tarifas</h2>
-                <p>Obtenga una estimación instantánea con nuestras tarifas optimizadas para cada duración, con total transparencia y la máxima calidad.</p>
+                <p>Calcule un importe orientativo con precios finales (impuestos incluidos). La reserva y el precio definitivo se confirman por WhatsApp, según disponibilidad.</p>
             </div>
 
             <div class="calc-box">
@@ -1461,9 +1503,9 @@
                     <div class="form-group">
                         <label for="calc-transporte">Punto y modalidad de entrega:</label>
                         <select id="calc-transporte" class="form-control" onchange="calcularPrecio()">
-                            <option value="22">Urgente a Domicilio en Rivas (+22,00 €)</option>
-                            <option value="35">Punto de encuentro AVE (Atocha / Chamartín) (+35,00 €)</option>
-                            <option value="0">Recogida directa en local (0,00 €)</option>
+                            <option value="0" selected>Recogida directa en local (0,00 €)</option>
+                            <option value="22">Entrega a domicilio en Rivas-Vaciamadrid (+22,00 €)</option>
+                            <option value="35">Entrega en estación AVE: Atocha / Chamartín (+35,00 €)</option>
                         </select>
                     </div>
                 </div>
@@ -1479,8 +1521,8 @@
                             <strong id="res-alquiler">6,00 €</strong>
                         </div>
                         <div class="res-row">
-                            <span>Gastos de Logística:</span>
-                            <strong id="res-transporte">22,00 €</strong>
+                            <span>Gastos de entrega:</span>
+                            <strong id="res-transporte">0,00 €</strong>
                         </div>
                         <div class="res-row">
                             <span>Fianza Reembolsable:</span>
@@ -1488,9 +1530,10 @@
                         </div>
 
                         <div class="res-total-box">
-                            <p>Estimación Total Inicial</p>
-                            <div class="res-total-price" id="res-total">28,00 €</div>
+                            <p>Total a abonar en la entrega (fianza incluida)</p>
+                            <div class="res-total-price" id="res-total">31,00 €</div>
                         </div>
+                        <p class="calc-note">Precios finales con impuestos incluidos. Importe orientativo: el precio definitivo y la disponibilidad se confirman antes de la entrega. La fianza es reembolsable conforme a las Condiciones del Servicio.</p>
                     </div>
 
                     <button onclick="enviarCalculoWhatsApp()" class="btn btn-whatsapp" style="width: 100%;">
@@ -1532,6 +1575,7 @@
                     <div class="form-group">
                         <label for="comentarios">Detalles del Viaje o Dirección de Entrega</label>
                         <textarea id="comentarios" class="form-control" rows="4" placeholder="Horario de llegada, número de tren o dirección exacta..."></textarea>
+                        <small class="form-hint">Por favor, no incluya datos de salud ni otros datos sensibles.</small>
                     </div>
 
                     <!-- Casilla de Privacidad -->
@@ -1542,8 +1586,10 @@
                         </label>
                     </div>
 
+                    <p class="form-privacy-info"><strong>Información básica sobre protección de datos.</strong> <em>Responsable:</em> Rivas Asiste (identificación completa en el <button type="button" class="privacy-link-btn" onclick="openModal('legalModal')">Aviso Legal</button>). <em>Finalidad:</em> atender su solicitud y gestionar la reserva y la entrega. <em>Legitimación:</em> medidas precontractuales a petición suya y su consentimiento. <em>Destinatarios:</em> no se ceden datos salvo obligación legal; la solicitud se envía mediante WhatsApp (Meta Platforms Ireland Ltd.). <em>Derechos:</em> acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a href="mailto:jorgempleo@hotmail.es">jorgempleo@hotmail.es</a>. Más información en la Política de Privacidad.</p>
+
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Enviar Solicitud Directa
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Enviar solicitud por WhatsApp
                     </button>
                 </form>
             </div>
@@ -1560,21 +1606,21 @@
                 <article class="service-card">
                     <div class="service-card-body">
                         <h3>¿Cómo funciona el servicio en las estaciones AVE?</h3>
-                        <p>Nos coordinamos previamente con el horario de su tren en Puerta de Atocha o Chamartín para esperarle en el punto de encuentro convenido con la silla lista.</p>
+                        <p>Nos coordinamos previamente con el horario de su tren en Madrid Puerta de Atocha o Chamartín para entregarle el material en el punto de encuentro convenido, sujeto a disponibilidad.</p>
                     </div>
                 </article>
 
                 <article class="service-card">
                     <div class="service-card-body">
                         <h3>¿Existe un periodo mínimo de alquiler?</h3>
-                        <p>No, puede alquilar desde un único día. Disponemos de tarifas escalonadas muy ventajosas para semanas o meses completos.</p>
+                        <p>No. Puede alquilar desde un único día. Disponemos de tarifas por 1, 3, 7, 15 y 30 días.</p>
                     </div>
                 </article>
 
                 <article class="service-card">
                     <div class="service-card-body">
                         <h3>¿Cuál es el importe de la fianza?</h3>
-                        <p>La fianza varía entre 10€ y 25€ según el producto y se devuelve íntegramente al término del contrato tras la comprobación del equipo.</p>
+                        <p>Se requiere una fianza reembolsable de entre 10 € y 25 € según el producto. Se devuelve al finalizar el alquiler, una vez comprobado el estado del equipo, descontando en su caso los importes justificados por daños, pérdida o penalizaciones previstos en las Condiciones del Servicio.</p>
                     </div>
                 </article>
             </div>
@@ -1592,7 +1638,7 @@
                     <div class="contact-icon" style="background: rgba(18, 140, 126, 0.1); color: #128C7E;">
                         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
                     </div>
-                    <h3>Atención WhatsApp 24h</h3>
+                    <h3>Atención por WhatsApp</h3>
                     <a href="https://wa.me/34601235215?text=Hola,%20deseo%20realizar%20una%20consulta." target="_blank" rel="noopener noreferrer">Abrir Chat en WhatsApp</a>
                 </div>
 
@@ -1608,17 +1654,34 @@
     </main>
 
     <!-- Modales Legales -->
-    <div class="modal-overlay" id="privacyModal" onclick="handleModalOutsideClick(event, 'privacyModal')">
-        <div class="modal-container">
+        <div class="modal-overlay" id="privacyModal" onclick="handleModalOutsideClick(event, 'privacyModal')">
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
             <div class="modal-header">
-                <h3>Política de Privacidad y Protección de Datos</h3>
-                <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Cerrar modal">&times;</button>
+                <h3 id="privacyModalTitle">Política de Privacidad y Protección de Datos</h3>
+                <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Cerrar ventana">&times;</button>
             </div>
             <div class="modal-body">
-                <h4>1. Responsable del Tratamiento</h4>
-                <p><strong>Rivas Asiste</strong>, con domicilio en Rivas-Vaciamadrid (Madrid), teléfono de contacto 601 235 215 y correo electrónico <strong>jorgempleo@hotmail.es</strong>, es el responsable del tratamiento de sus datos personales.</p>
-                <h4>2. Finalidad del Tratamiento</h4>
-                <p>Los datos solicitados se tratan exclusivamente para la gestión de reservas de material ortopédico y la logística de entregas.</p>
+<h4>1. Responsable del tratamiento</h4>
+<p><strong>Titular:</strong> <mark>Pendiente</mark> · <strong>NIF/CIF:</strong> <mark>Pendiente</mark> · <strong>Domicilio:</strong> <mark>Pendiente</mark> · <strong>Teléfono:</strong> 601 235 215 · <strong>Correo electrónico:</strong> jorgempleo@hotmail.es. En adelante, «Rivas Asiste». No se ha designado Delegado de Protección de Datos por no ser obligatorio.</p>
+<h4>2. Datos que tratamos</h4>
+<p>Nombre y apellidos, teléfono, producto de interés, detalles del viaje o dirección de entrega y los demás datos que usted facilite voluntariamente. <strong>No solicitamos datos de salud</strong>; le rogamos que no los incluya en sus mensajes. Si realiza la solicitud en nombre de otra persona, declara estar legitimado para ello y haberla informado de este tratamiento.</p>
+<h4>3. Finalidades</h4>
+<ul>
+<li>Atender consultas y solicitudes de reserva y elaborar presupuestos.</li>
+<li>Gestionar la entrega, recogida, fianza, facturación y cobro del servicio contratado.</li>
+<li>Cumplir obligaciones legales (fiscales y mercantiles) y defender los intereses de Rivas Asiste ante posibles reclamaciones.</li>
+</ul>
+<p>No elaboramos perfiles ni adoptamos decisiones automatizadas. No enviaremos comunicaciones comerciales sin su consentimiento previo.</p>
+<h4>4. Base jurídica</h4>
+<p>Aplicación de medidas precontractuales a petición suya y ejecución del contrato (art. 6.1.b RGPD); su consentimiento al marcar la casilla del formulario o al contactarnos (art. 6.1.a); cumplimiento de obligaciones legales (art. 6.1.c); e interés legítimo en la defensa frente a reclamaciones (art. 6.1.f).</p>
+<h4>5. Conservación</h4>
+<p>Las solicitudes que no lleguen a formalizarse se conservarán un máximo de 12 meses. Los datos del servicio contratado se conservarán mientras dure la relación y, después, bloqueados durante los plazos legales aplicables (hasta seis años para la documentación mercantil y los plazos fiscales correspondientes).</p>
+<h4>6. Destinatarios y transferencias</h4>
+<p>No cedemos sus datos a terceros salvo obligación legal. Pueden acceder a ellos proveedores necesarios para prestar el servicio (por ejemplo, alojamiento web), con contrato de encargo de tratamiento. Los botones de contacto y el formulario abren una conversación en <strong>WhatsApp</strong> (Meta Platforms Ireland Ltd.), que trata los datos conforme a su propia política de privacidad y que puede implicar transferencias internacionales amparadas en las garantías del RGPD.</p>
+<h4>7. Sus derechos</h4>
+<p>Puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad, y retirar su consentimiento, escribiendo a <strong>jorgempleo@hotmail.es</strong> e indicando el derecho que ejercita (podemos pedirle un documento que acredite su identidad). Si considera que sus derechos no han sido atendidos, puede reclamar ante la Agencia Española de Protección de Datos (<strong>www.aepd.es</strong>).</p>
+<h4>8. Seguridad y actualizaciones</h4>
+<p>Aplicamos medidas técnicas y organizativas adecuadas para proteger sus datos. Esta política puede actualizarse; la versión vigente es la publicada en esta web. Última actualización: octubre de 2026.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="closeModal('privacyModal')" style="padding: 10px 20px; font-size: 0.9rem;">Entendido</button>
@@ -1627,13 +1690,24 @@
     </div>
 
     <div class="modal-overlay" id="legalModal" onclick="handleModalOutsideClick(event, 'legalModal')">
-        <div class="modal-container">
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
             <div class="modal-header">
-                <h3>Aviso Legal</h3>
-                <button class="modal-close" onclick="closeModal('legalModal')" aria-label="Cerrar modal">&times;</button>
+                <h3 id="legalModalTitle">Aviso Legal</h3>
+                <button class="modal-close" onclick="closeModal('legalModal')" aria-label="Cerrar ventana">&times;</button>
             </div>
             <div class="modal-body">
-                <p>Información legal del sitio web https://rivasasiste.es administrado por Rivas Asiste.</p>
+<h4>1. Datos identificativos (Ley 34/2002, LSSI-CE)</h4>
+<p><strong>Titular:</strong> <mark>Pendiente</mark><br><strong>NIF/CIF:</strong> <mark>Pendiente</mark><br><strong>Domicilio:</strong> <mark>Pendiente</mark><br><strong>Teléfono:</strong> 601 235 215<br><strong>Correo electrónico:</strong> jorgempleo@hotmail.es<br><strong>Sitio web:</strong> https://rivasasiste.es<br><strong>Actividad:</strong> alquiler de sillas de ruedas, andadores y muletas.</p>
+<h4>2. Condiciones de uso</h4>
+<p>El acceso y uso de esta web atribuye la condición de usuario e implica la aceptación de este Aviso Legal. El usuario se compromete a hacer un uso lícito y diligente de la web y a no emplearla para fines contrarios a la ley o que puedan dañar a Rivas Asiste o a terceros.</p>
+<h4>3. Propiedad intelectual e industrial</h4>
+<p>Los textos, imágenes, logotipos, diseño y código de esta web son titularidad de Rivas Asiste o se utilizan con autorización. Queda prohibida su reproducción, distribución o transformación sin permiso previo y por escrito.</p>
+<h4>4. Información y responsabilidad</h4>
+<p>Los contenidos, precios y la calculadora tienen carácter informativo y orientativo; las condiciones definitivas son las confirmadas en la reserva. Las imágenes son ilustrativas y el modelo entregado puede variar según disponibilidad. Rivas Asiste no garantiza la disponibilidad ininterrumpida de la web ni responde de los daños derivados de interrupciones o fallos ajenos a su control, ni del contenido de sitios externos enlazados (como WhatsApp), todo ello en la medida permitida por la ley.</p>
+<h4>5. Información no sanitaria</h4>
+<p>Rivas Asiste alquila productos de apoyo a la movilidad y no presta asesoramiento médico ni sanitario. Los contenidos de la web no sustituyen la opinión de un profesional sanitario; la elección del producto adecuado a sus necesidades es responsabilidad del usuario.</p>
+<h4>6. Legislación, jurisdicción y reclamaciones</h4>
+<p>Este Aviso Legal se rige por la legislación española. Los consumidores pueden acudir a los juzgados de su domicilio; en el resto de casos, las partes se someten a los juzgados y tribunales de Madrid capital. Hay hojas de reclamaciones a disposición de los consumidores que las soliciten en jorgempleo@hotmail.es.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="closeModal('legalModal')" style="padding: 10px 20px; font-size: 0.9rem;">Entendido</button>
@@ -1642,13 +1716,23 @@
     </div>
 
     <div class="modal-overlay" id="cookiesModal" onclick="handleModalOutsideClick(event, 'cookiesModal')">
-        <div class="modal-container">
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="cookiesModalTitle">
             <div class="modal-header">
-                <h3>Política de Cookies</h3>
-                <button class="modal-close" onclick="closeModal('cookiesModal')" aria-label="Cerrar modal">&times;</button>
+                <h3 id="cookiesModalTitle">Política de Cookies</h3>
+                <button class="modal-close" onclick="closeModal('cookiesModal')" aria-label="Cerrar ventana">&times;</button>
             </div>
             <div class="modal-body">
-                <p>Uso de cookies técnicas strictly necesarias para la experiencia de navegación del sitio web.</p>
+<h4>1. ¿Qué usamos?</h4>
+<p>Esta web <strong>no utiliza cookies de analítica, publicidad, redes sociales ni seguimiento</strong>. Solo emplea un almacenamiento técnico estrictamente necesario, exento de consentimiento según el artículo 22.2 de la LSSI-CE:</p>
+<ul>
+<li><strong>cookie_consent_rivas</strong> (almacenamiento local del navegador, propio): recuerda que ya ha visto este aviso para no mostrárselo de nuevo. Se conserva hasta que usted la borre.</li>
+</ul>
+<h4>2. Recursos de terceros</h4>
+<p>La web no carga fuentes, scripts ni contenidos de terceros. Al pulsar un botón de WhatsApp se abre ese servicio externo, que se rige por su propia política de privacidad y cookies.</p>
+<h4>3. Cómo gestionarlas</h4>
+<p>Puede borrar o bloquear el almacenamiento desde la configuración de su navegador; la web seguirá funcionando con normalidad.</p>
+<h4>4. Cambios</h4>
+<p>Si en el futuro se incorporasen cookies no técnicas, se le solicitará su consentimiento previo y se actualizará esta política.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="closeModal('cookiesModal')" style="padding: 10px 20px; font-size: 0.9rem;">Entendido</button>
@@ -1657,13 +1741,34 @@
     </div>
 
     <div class="modal-overlay" id="termsModal" onclick="handleModalOutsideClick(event, 'termsModal')">
-        <div class="modal-container">
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="termsModalTitle">
             <div class="modal-header">
-                <h3>Condiciones del Servicio</h3>
-                <button class="modal-close" onclick="closeModal('termsModal')" aria-label="Cerrar modal">&times;</button>
+                <h3 id="termsModalTitle">Condiciones del Servicio</h3>
+                <button class="modal-close" onclick="closeModal('termsModal')" aria-label="Cerrar ventana">&times;</button>
             </div>
             <div class="modal-body">
-                <p>Términos y condiciones aplicables al alquiler de sillas de ruedas, andadores y muletas por parte de Rivas Asiste.</p>
+<h4>1. Objeto</h4>
+<p>Estas condiciones regulan el alquiler de sillas de ruedas, andadores y muletas por parte de Rivas Asiste (<mark>Pendiente</mark>, NIF <mark>Pendiente</mark>) al cliente. Son aplicables las vigentes en la fecha de la reserva. Se trata de productos de apoyo a la movilidad; Rivas Asiste no presta asesoramiento sanitario y la elección del producto es responsabilidad del cliente.</p>
+<h4>2. Reserva y disponibilidad</h4>
+<p>La solicitud por la web, WhatsApp o correo no es vinculante hasta que Rivas Asiste la confirme. Todos los servicios, incluidos los urgentes y los de estación AVE, están sujetos a disponibilidad y coordinación previa. Las imágenes son orientativas y el modelo puede variar.</p>
+<h4>3. Precio y pago</h4>
+<p>Los precios mostrados son finales, con impuestos incluidos, y se confirman antes de la entrega. La calculadora es orientativa. Los gastos de entrega se indican por separado según el punto elegido. La forma de pago se comunicará al confirmar la reserva.</p>
+<h4>4. Fianza</h4>
+<p>Se abona en la entrega (entre 10 € y 25 € según el producto). Se devuelve en el momento de la devolución si el equipo puede revisarse en el acto y, en otro caso, en un máximo de 7 días naturales. Rivas Asiste podrá descontar los importes <strong>justificados</strong> por daños, pérdida, limpieza extraordinaria, días de retraso o penalizaciones previstas en estas condiciones; si el perjuicio superase la fianza, el cliente abonará la diferencia previa justificación.</p>
+<h4>5. Entrega y recogida</h4>
+<p>Se realizan en el lugar y hora acordados. En estaciones AVE, el cliente facilitará tren y hora de llegada y avisará de cualquier cambio. Si transcurridos 30 minutos desde la hora acordada no es posible localizar al cliente, Rivas Asiste podrá dar la entrega por no realizada y repercutir los gastos de desplazamiento efectivamente incurridos. Rivas Asiste no responde de retrasos por causas ajenas a su control (trenes, tráfico, fuerza mayor); las entregas urgentes no garantizan una hora exacta.</p>
+<h4>6. Uso del equipo</h4>
+<p>Uso personal y conforme a las instrucciones y la carga máxima del fabricante. Queda prohibido subarrendar, ceder, modificar o usar el equipo en condiciones inadecuadas. El cliente revisará el equipo en la entrega y comunicará en ese momento cualquier defecto; si no lo hace, se entenderá recibido en buen estado.</p>
+<h4>7. Responsabilidad</h4>
+<p>Durante el periodo de alquiler el cliente responde de la custodia del equipo y de los daños, pérdida o robo que sufra, salvo el desgaste normal por uso, abonando el coste justificado de reparación o el valor de reposición. Rivas Asiste no responde de los daños derivados de un uso inadecuado ni de la elección de un producto no adecuado a las necesidades del cliente. Nada de lo anterior limita la responsabilidad que no pueda excluirse legalmente.</p>
+<h4>8. Duración, devolución y prórrogas</h4>
+<p>El equipo se devolverá en la fecha acordada y en buen estado de limpieza y conservación. Las ampliaciones deben solicitarse antes de que finalice el alquiler; cada día adicional se facturará a la tarifa diaria vigente.</p>
+<h4>9. Cancelación y desistimiento</h4>
+<p>Puede cancelar sin coste hasta 24 horas antes de la entrega. Después, podrán repercutirse los gastos de entrega y gestión ya incurridos. Si es consumidor y contrata a distancia, dispone de 14 días naturales para desistir sin indicar motivo, notificándolo por correo o WhatsApp. Si solicitó expresamente que el servicio comenzase antes de que acabe ese plazo, abonará la parte proporcional del servicio ya prestado hasta el desistimiento, conforme al Real Decreto Legislativo 1/2007.</p>
+<h4>10. Datos personales</h4>
+<p>El tratamiento de sus datos se rige por la Política de Privacidad.</p>
+<h4>11. Ley aplicable y reclamaciones</h4>
+<p>Legislación española. Los consumidores pueden acudir a los juzgados de su domicilio y a los organismos de consumo y juntas arbitrales competentes. Hay hojas de reclamaciones a disposición de quien las solicite en jorgempleo@hotmail.es.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="closeModal('termsModal')" style="padding: 10px 20px; font-size: 0.9rem;">Entendido</button>
@@ -1674,10 +1779,10 @@
     <!-- Banner Flotante de Cookies -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-text">
-            <strong>Aviso de Cookies:</strong> Utilizamos cookies necesarias para el correcto funcionamiento técnico de la web. <button type="button" class="btn-cookie-link" onclick="openModal('cookiesModal')">Saber más</button>
+            <strong>Aviso:</strong> esta web solo usa almacenamiento técnico estrictamente necesario; no utiliza cookies de analítica, publicidad ni seguimiento. <button type="button" class="btn-cookie-link" onclick="openModal('cookiesModal')">Saber más</button>
         </div>
         <div class="cookie-actions">
-            <button type="button" class="btn-cookie-accept" onclick="acceptCookies()">Aceptar todas</button>
+            <button type="button" class="btn-cookie-accept" onclick="acceptCookies()">Entendido</button>
         </div>
     </div>
 
@@ -1686,10 +1791,10 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Rivas Asiste</h4>
-                <p>Especialistas en la gestión y alquiler de soluciones ortopédicas de movilidad reducida con la máxima comodidad.</p>
+                <p>Alquiler de sillas de ruedas, andadores y muletas en Rivas-Vaciamadrid, con entrega a domicilio y en estaciones AVE.</p>
             </div>
             <div class="footer-col">
-                <h4>Atención WhatsApp 24h</h4>
+                <h4>Atención por WhatsApp</h4>
                 <p><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg> WhatsApp: 601 235 215</p>
                 <p><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> jorgempleo@hotmail.es</p>
             </div>
@@ -1713,12 +1818,12 @@
                 <img src="logoRivasAsiste.png" alt="Rivas Asiste" class="chat-avatar">
                 <div class="chat-info">
                     <h4>Asistente Rivas Asiste</h4>
-                    <p>Atención por WhatsApp 24h</p>
+                    <p>Atención por WhatsApp</p>
                 </div>
-                <button onclick="toggleChatbot()" style="background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer; margin-left:auto; outline:none;">&times;</button>
+                <button onclick="toggleChatbot()" aria-label="Cerrar asistente" style="background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer; margin-left:auto; outline:none;">&times;</button>
             </div>
             
-            <div class="chat-body" id="chatBody">
+            <div class="chat-body" id="chatBody" aria-live="polite">
                 <div class="msg-bot">
                     Bienvenido a <strong>Rivas Asiste</strong>. ¿En qué le podemos ayudar para planificar su movilidad o la de un familiar?
                 </div>
@@ -1765,34 +1870,42 @@
             btn.classList.remove('active');
         }
 
-        // Sistema de Modales
+        // Sistema de Modales (accesible: foco y tecla Escape)
+        let ultimoFoco = null;
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
-            if(modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
+            if (!modal) return;
+            ultimoFoco = document.activeElement;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            const cerrar = modal.querySelector('.modal-close');
+            if (cerrar) cerrar.focus();
         }
 
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
-            if(modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
+            if (!modal) return;
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
         }
 
         function handleModalOutsideClick(event, modalId) {
             const modal = document.getElementById(modalId);
-            if (event.target === modal) {
-                closeModal(modalId);
-            }
+            if (event.target === modal) closeModal(modalId);
         }
 
-        // Sistema de Cookies
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(function (m) { closeModal(m.id); });
+            }
+        });
+
+        // Aviso informativo (solo almacenamiento técnico)
         function checkCookieConsent() {
-            const consent = localStorage.getItem('cookie_consent_rivas');
-            if (!consent) {
+            let visto = null;
+            try { visto = localStorage.getItem('cookie_consent_rivas'); } catch (e) {}
+            if (!visto) {
                 setTimeout(() => {
                     document.getElementById('cookieBanner').classList.add('active');
                 }, 800);
@@ -1800,7 +1913,7 @@
         }
 
         function acceptCookies() {
-            localStorage.setItem('cookie_consent_rivas', 'accepted');
+            try { localStorage.setItem('cookie_consent_rivas', 'accepted'); } catch (e) {}
             document.getElementById('cookieBanner').classList.remove('active');
         }
 
@@ -1828,7 +1941,7 @@
             const item = tarifas[tipo];
             const costoAlquiler = item.dias[periodo];
             const fianza = item.fianza;
-            const totalPagar = costoAlquiler + costoTransporte;
+            const totalPagar = costoAlquiler + costoTransporte + fianza;
 
             document.getElementById('res-alquiler').innerText = costoAlquiler.toFixed(2).replace('.', ',') + ' €';
             document.getElementById('res-transporte').innerText = costoTransporte.toFixed(2).replace('.', ',') + ' €';
@@ -1859,7 +1972,7 @@
                           `- Alquiler: ${alquilerVal}\n` +
                           `- Logística: ${transporteVal}\n` +
                           `- Fianza: ${fianzaVal}\n` +
-                          `• *TOTAL ESTIMADO:* ${totalVal}\n\n` +
+                          `• *TOTAL A ABONAR (fianza incluida):* ${totalVal}\n\n` +
                           `Deseo confirmar la disponibilidad a través de WhatsApp.`;
 
             const url = `https://wa.me/34601235215?text=${encodeURIComponent(texto)}`;
@@ -1924,14 +2037,14 @@
             if (paso === 'menu_estaciones') {
                 agregarMensaje("¿Cómo funciona en estaciones AVE?", "user");
                 setTimeout(() => {
-                    agregarMensaje("Es un servicio exclusivo muy sencillo. Indicándonos el número de tren y hora de llegada a <strong>Madrid Atocha</strong> o <strong>Chamartín</strong>, nuestro técnico le esperará directamente en el punto de encuentro con el material revisado y desinfectado.", "bot");
+                    agregarMensaje("Es un servicio muy sencillo. Indíquenos el número de tren y la hora de llegada a <strong>Madrid Atocha</strong> o <strong>Chamartín</strong> y coordinaremos con usted el punto de encuentro para entregarle el material higienizado, sujeto a disponibilidad.", "bot");
                     agregarMensaje("¿Desea calcular el presupuesto en la web o prefiere consultarnos directamente por WhatsApp?", "bot");
                     actualizarOpciones(`
                         <button class="chat-opt-btn" onclick="navegarChat('ir_calculadora')">
                             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
                             Ir a la Calculadora de Tarifas
                         </button>
-                        <button class="chat-opt-btn" onclick="derivarWhatsApp('Hola, deseo coordinar una entrega VIP en estación AVE.')">
+                        <button class="chat-opt-btn" onclick="derivarWhatsApp('Hola, deseo coordinar una entrega en estación AVE.')">
                             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
                             Consultar por WhatsApp
                         </button>
@@ -1945,17 +2058,17 @@
             else if (paso === 'menu_productos') {
                 agregarMensaje("¿Qué tipos de equipos tenéis y precios?", "user");
                 setTimeout(() => {
-                    agregarMensaje("Disponemos de material higienizado con protocolo médico estrictamente revisado:<br><br>" +
+                    agregarMensaje("Disponemos de material higienizado antes de cada alquiler:<br><br>" +
                                    "• <strong>Sillas de ruedas manuales:</strong> Desde 6€/día<br>" +
                                    "• <strong>Andadores y Rollators:</strong> Desde 5€/día<br>" +
                                    "• <strong>Muletas y Bastones:</strong> Desde 3€/día<br><br>" +
-                                   "Ofrecemos tarifas adaptadas a periodos diarios, semanales o mensuales.", "bot");
+                                   "Ofrecemos tarifas por periodos diarios, semanales o mensuales. Precios finales con impuestos incluidos.", "bot");
                     actualizarOpciones(`
                         <button class="chat-opt-btn" onclick="navegarChat('ir_calculadora')">
                             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
                             Calcular importe exacto
                         </button>
-                        <button class="chat-opt-btn" onclick="derivarWhatsApp('Hola, quiero consultar disponibilidad de material ortopédico.')">
+                        <button class="chat-opt-btn" onclick="derivarWhatsApp('Hola, quiero consultar disponibilidad de sillas de ruedas, andadores o muletas.')">
                             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
                             Consultar disponibilidad en WhatsApp
                         </button>
@@ -1969,10 +2082,10 @@
             else if (paso === 'menu_urgencias') {
                 agregarMensaje("Necesito el material urgentemente hoy", "user");
                 setTimeout(() => {
-                    agregarMensaje("Entendido. Realizamos entregas urgentes a domicilio en <strong>Rivas-Vaciamadrid</strong> y municipios cercanos.", "bot");
+                    agregarMensaje("Entendido. Intentamos atender las solicitudes urgentes en <strong>Rivas-Vaciamadrid</strong> y municipios cercanos, sujeto a disponibilidad.", "bot");
                     agregarMensaje("Para gestionar su solicitud de forma prioritaria en este momento, contáctenos directamente por WhatsApp.", "bot");
                     actualizarOpciones(`
-                        <button class="chat-opt-btn" onclick="derivarWhatsApp('URGENTE: Hola, necesito un equipo ortopédico de inmediato hoy.')">
+                        <button class="chat-opt-btn" onclick="derivarWhatsApp('URGENTE: Hola, necesito alquilar un equipo con urgencia hoy.')">
                             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
                             Abrir WhatsApp Urgente
                         </button>
@@ -1986,7 +2099,7 @@
             else if (paso === 'menu_fianza') {
                 agregarMensaje("¿Cómo funciona la fianza y devolución?", "user");
                 setTimeout(() => {
-                    agregarMensaje("Se requiere un depósito de fianza reembolsable (entre 10€ y 25€ según el producto). La fianza se reintegra íntegramente de inmediato tras finalizar el alquiler y verificar el estado del equipo.", "bot");
+                    agregarMensaje("Se requiere una fianza reembolsable (entre 10 € y 25 € según el producto). Se devuelve al finalizar el alquiler, una vez comprobado el estado del equipo, descontando en su caso los importes justificados por daños, pérdida o penalizaciones previstos en las Condiciones del Servicio.", "bot");
                     actualizarOpciones(`
                         <button class="chat-opt-btn" onclick="derivarWhatsApp('Hola, tengo dudas sobre las condiciones de fianza.')">
                             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
