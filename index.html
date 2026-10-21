@@ -745,13 +745,13 @@
             color: var(--primary-dark);
         }
 
-        /* Modal Privacidad Estilo Emergente */
+        /* Modales Estilo Emergente Premium */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -770,7 +770,7 @@
         .modal-container {
             background: var(--white);
             width: 100%;
-            max-width: 750px;
+            max-width: 780px;
             max-height: 85vh;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-lg);
@@ -795,7 +795,7 @@
         }
 
         .modal-header h3 {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             color: var(--secondary);
             font-weight: 700;
         }
@@ -849,10 +849,85 @@
         }
 
         .modal-footer {
-            padding: 20px 32px;
+            padding: 18px 32px;
             border-top: 1px solid var(--slate-100);
             background: var(--light);
             text-align: right;
+        }
+
+        /* Banner de Cookies Flotante */
+        .cookie-banner {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            color: var(--white);
+            padding: 22px 28px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            transition: var(--transition);
+            transform: translateY(150%);
+        }
+
+        .cookie-banner.active {
+            transform: translateY(0);
+        }
+
+        .cookie-text {
+            font-size: 0.88rem;
+            color: var(--slate-400);
+            line-height: 1.5;
+        }
+
+        .cookie-text strong {
+            color: var(--white);
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .btn-cookie-accept {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            font-size: 0.875rem;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-cookie-accept:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-cookie-link {
+            background: transparent;
+            color: var(--slate-400);
+            padding: 10px 14px;
+            font-size: 0.875rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+            font-family: inherit;
+        }
+
+        .btn-cookie-link:hover {
+            color: var(--white);
         }
 
         /* Contact Section */
@@ -1018,6 +1093,10 @@
             }
             .calc-results {
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .cookie-banner {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
 
@@ -1345,7 +1424,7 @@
                     <div class="form-group-checkbox">
                         <input type="checkbox" id="privacidad-check" required>
                         <label for="privacidad-check">
-                            He leído y acepto la <button type="button" class="privacy-link-btn" onclick="openPrivacyModal()">Política de Privacidad</button> y el tratamiento de mis datos para gestionar esta solicitud.
+                            He leído y acepto la <button type="button" class="privacy-link-btn" onclick="openModal('privacyModal')">Política de Privacidad</button> y el tratamiento de mis datos para gestionar esta solicitud.
                         </label>
                     </div>
 
@@ -1422,41 +1501,120 @@
         </section>
     </main>
 
-    <!-- Modal de Política de Privacidad -->
-    <div class="modal-overlay" id="privacyModal" onclick="handleModalOutsideClick(event)">
+    <!-- Modal 1: Política de Privacidad -->
+    <div class="modal-overlay" id="privacyModal" onclick="handleModalOutsideClick(event, 'privacyModal')">
         <div class="modal-container">
             <div class="modal-header">
                 <h3>Política de Privacidad y Protección de Datos</h3>
-                <button class="modal-close" onclick="closePrivacyModal()" aria-label="Cerrar modal">&times;</button>
+                <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Cerrar modal">&times;</button>
             </div>
             <div class="modal-body">
                 <h4>1. Responsable del Tratamiento</h4>
-                <p><strong>Rivas Asiste</strong>, con domicilio en Rivas-Vaciamadrid (Madrid), teléfono 601 235 215 y correo electrónico jorgempleo@hotmail.es, es el responsable del tratamiento de los datos personales facilitados por los usuarios a través de este sitio web.</p>
+                <p><strong>Rivas Asiste</strong> (Titularidad en trámite de registro fiscal/autónomo), con domicilio en Rivas-Vaciamadrid (Madrid), teléfono de contacto 601 235 215 y correo electrónico <strong>jorgempleo@hotmail.es</strong>, es el responsable del tratamiento de sus datos personales.</p>
 
                 <h4>2. Finalidad del Tratamiento</h4>
-                <p>Los datos facilitados en el formulario de reserva o presupuesto se tratarán exclusivamente para:</p>
+                <p>Los datos solicitados a través del formulario se tratan exclusivamente para:</p>
                 <ul>
-                    <li>Gestionar la solicitud de alquiler de material ortopédico (sillas de ruedas, andadores, muletas).</li>
-                    <li>Coordinar la logística de entrega a domicilio o en las estaciones de tren AVE (Atocha y Chamartín).</li>
-                    <li>Mantener la comunicación directa con el cliente mediante mensajería (WhatsApp) o llamadas telefónicas vinculadas al servicio.</li>
+                    <li>Gestionar la reserva, logística y alquiler de material ortopédico (sillas de ruedas, andadores, muletas).</li>
+                    <li>Coordinar las entregas urgentes a domicilio o recepción en estaciones AVE (Atocha y Chamartín).</li>
+                    <li>Atender sus dudas telefónicas o mediante WhatsApp.</li>
                 </ul>
 
-                <h4>3. Legitimación</h4>
-                <p>La base jurídica que legitima el tratamiento de sus datos es el **consentimiento expreso** otorgado al marcar la casilla de aceptación y enviar el formulario, así como la ejecución de medidas precontractuales del servicio de alquiler.</p>
+                <h4>3. Legitimación y Conservación</h4>
+                <p>La base legal es su **consentimiento explícito** otorgado al marcar la casilla de aceptación. Los datos se conservarán el tiempo estrictamente necesario para formalizar el servicio solicitado.</p>
 
-                <h4>4. Conservación de los Datos</h4>
-                <p>Los datos proporcionados se conservarán durante el tiempo necesario para cumplir con las obligaciones legales y fiscales derivadas de la prestación del servicio comercial.</p>
-
-                <h4>5. Derechos de los Usuarios</h4>
-                <p>Puede ejercer sus derechos de acceso, rectificación, supresión y portabilidad enviando un correo electrónico a <strong>jorgempleo@hotmail.es</strong> indicando su solicitud junto con su identificación.</p>
+                <h4>4. Derechos del Usuario</h4>
+                <p>Puede ejercitar sus derechos de acceso, rectificación, cancelación y oposición enviando un correo a <strong>jorgempleo@hotmail.es</strong>.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="closePrivacyModal()" style="padding: 10px 20px; font-size: 0.9rem;">Entendido</button>
+                <button type="button" class="btn btn-primary" onclick="closeModal('privacyModal')" style="padding: 10px 20px; font-size: 0.9rem;">Entendido</button>
             </div>
         </div>
     </div>
 
-    <!-- Footer Depurado -->
+    <!-- Modal 2: Aviso Legal -->
+    <div class="modal-overlay" id="legalModal" onclick="handleModalOutsideClick(event, 'legalModal')">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Aviso Legal y Condiciones de Uso</h3>
+                <button class="modal-close" onclick="closeModal('legalModal')" aria-label="Cerrar modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>1. Datos Identificativos</h4>
+                <p>En cumplimiento de la Ley 34/2002 (LSSI-CE), se informa que el sitio web <strong>https://rivasasiste.es</strong> es operado por <strong>Rivas Asiste</strong> (NIF/CIF en trámite de asignación por inicio de actividad), con domicilio comercial en Rivas-Vaciamadrid (Madrid) y contacto directo en <strong>jorgempleo@hotmail.es</strong>.</p>
+
+                <h4>2. Propiedad Intelectual</h4>
+                <p>Los contenidos, marcas, logotipos, imágenes y diseño gráfico de esta web son propiedad exclusiva de Rivas Asiste o de terceros con autorización, quedando prohibida su reproducción sin autorización previa.</p>
+
+                <h4>3. Responsabilidad de Contenidos</h4>
+                <p>Rivas Asiste no se hace responsable de los fallos técnicos ajenos o del uso indebido del material ortopédico una vez entregado y verificado por el usuario.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="closeModal('legalModal')" style="padding: 10px 20px; font-size: 0.9rem;">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Política de Cookies -->
+    <div class="modal-overlay" id="cookiesModal" onclick="handleModalOutsideClick(event, 'cookiesModal')">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Política de Cookies</h3>
+                <button class="modal-close" onclick="closeModal('cookiesModal')" aria-label="Cerrar modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>1. ¿Qué son las cookies?</h4>
+                <p>Una cookie es un pequeño archivo que se almacena en su navegador al visitar nuestra web. Sirve para garantizar el funcionamiento técnico del sitio y mejorar la navegación.</p>
+
+                <h4>2. Cookies Utilizadas</h4>
+                <ul>
+                    <li><strong>Cookies Técnicas (Necesarias):</strong> Permiten la navegación fluida, recordar su aceptación de políticas y la correcta visualización de formularios y botones interactivos.</li>
+                    <li><strong>Cookies de Análisis (Opcionales):</strong> Utilizadas para medir visitas de forma anónima y mejorar la experiencia de servicio.</li>
+                </ul>
+
+                <h4>3. Gestión de Cookies</h4>
+                <p>Puede cambiar sus preferencias o desactivar las cookies desde las opciones de configuración de su navegador web en cualquier momento.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="closeModal('cookiesModal')" style="padding: 10px 20px; font-size: 0.9rem;">Aceptar y Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Condiciones de Alquiler -->
+    <div class="modal-overlay" id="termsModal" onclick="handleModalOutsideClick(event, 'termsModal')">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Condiciones Generales del Servicio de Alquiler</h3>
+                <button class="modal-close" onclick="closeModal('termsModal')" aria-label="Cerrar modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>1. Estado e Higienización</h4>
+                <p>Todo el material ortopédico (sillas de ruedas, andadores, muletas) se entrega en perfectas condiciones de uso, revisado mecánicamente y desinfectado mediante protocolo médico antes de cada entrega.</p>
+
+                <h4>2. Depósito de Fianza</h4>
+                <p>Se requerirá el abono de una fianza reembolsable (entre 10€ y 25€ según el equipo) al recibir el material, la cual se devolverá íntegramente al término del contrato tras la comprobación del buen estado del equipo.</p>
+
+                <h4>3. Entregas en Estaciones AVE</h4>
+                <p>Para entregas en Madrid Atocha o Chamartín, coordinamos con el número de tren y horario de llegada acordado previa confirmación por WhatsApp o teléfono.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="closeModal('termsModal')" style="padding: 10px 20px; font-size: 0.9rem;">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Flotante de Cookies -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">
+            <strong>Aviso de Cookies:</strong> Utilizamos cookies propias y de terceros necesarias para el correcto funcionamiento técnico de la web y el procesamiento de presupuestos. <button type="button" class="btn-cookie-link" onclick="openModal('cookiesModal')">Saber más</button>
+        </div>
+        <div class="cookie-actions">
+            <button type="button" class="btn-cookie-accept" onclick="acceptCookies()">Aceptar todas</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -1464,18 +1622,20 @@
                 <p>Especialistas en la gestión y alquiler de soluciones ortopédicas de movilidad reducida con la máxima comodidad.</p>
             </div>
             <div class="footer-col">
-                <h4>Contacto</h4>
+                <h4>Contacto Directo</h4>
                 <p><svg class="svg-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> 601 235 215</p>
                 <p><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> jorgempleo@hotmail.es</p>
             </div>
             <div class="footer-col">
-                <h4>Legal</h4>
-                <button type="button" class="footer-btn" onclick="openPrivacyModal()">Política de Privacidad</button>
-                <p>Rivas-Vaciamadrid &amp; Madrid</p>
+                <h4>Información Legal</h4>
+                <button type="button" class="footer-btn" onclick="openModal('legalModal')">Aviso Legal</button>
+                <button type="button" class="footer-btn" onclick="openModal('privacyModal')">Política de Privacidad</button>
+                <button type="button" class="footer-btn" onclick="openModal('cookiesModal')">Política de Cookies</button>
+                <button type="button" class="footer-btn" onclick="openModal('termsModal')">Condiciones del Servicio</button>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Rivas Asiste. Todos los derechos reservados. Excelencia en movilidad.</p>
+            <p>&copy; 2026 Rivas Asiste. Todos los derechos reservados. Excelencia en movilidad reducida.</p>
         </div>
     </footer>
 
@@ -1486,7 +1646,7 @@
 
     <!-- JavaScript Core -->
     <script>
-        // Menu Hamburguesa Logic
+        // Menu Hamburguesa
         function toggleMenu() {
             const navList = document.getElementById('navList');
             const btn = document.getElementById('hamburgerBtn');
@@ -1501,27 +1661,46 @@
             btn.classList.remove('active');
         }
 
-        // Modal de Privacidad Logic
-        function openPrivacyModal() {
-            const modal = document.getElementById('privacyModal');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Evita scroll de fondo
-        }
-
-        function closePrivacyModal() {
-            const modal = document.getElementById('privacyModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        function handleModalOutsideClick(event) {
-            const modal = document.getElementById('privacyModal');
-            if (event.target === modal) {
-                closePrivacyModal();
+        // Sistema Universal de Modales
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if(modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
         }
 
-        // Calculator Logic
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if(modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function handleModalOutsideClick(event, modalId) {
+            const modal = document.getElementById(modalId);
+            if (event.target === modal) {
+                closeModal(modalId);
+            }
+        }
+
+        // Sistema de Banner de Cookies
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookie_consent_rivas');
+            if (!consent) {
+                setTimeout(() => {
+                    document.getElementById('cookieBanner').classList.add('active');
+                }, 800);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookie_consent_rivas', 'accepted');
+            document.getElementById('cookieBanner').classList.remove('active');
+        }
+
+        // Calculadora de Tarifas
         const tarifas = {
             silla: {
                 fianza: 25,
@@ -1568,7 +1747,7 @@
             const fianzaVal = document.getElementById('res-fianza').innerText;
             const totalVal = document.getElementById('res-total').innerText;
 
-            const texto = `Hola, he calculated una tarifa en su sitio web:\n\n` +
+            const texto = `Hola, he calculado una tarifa en su sitio web:\n\n` +
                           `• *Producto:* ${productoNombre}\n` +
                           `• *Duración:* ${periodoTexto}\n` +
                           `• *Entrega:* ${transporteTexto}\n\n` +
@@ -1586,10 +1765,9 @@
         function enviarWhatsAppForm(e) {
             e.preventDefault();
             
-            // Validación estricta del checkbox de privacidad
             const privacidadCheck = document.getElementById('privacidad-check');
             if (!privacidadCheck.checked) {
-                alert('Debe aceptar la Política de Privacidad para poder enviar el formulario.');
+                alert('Debe aceptar la Política de Privacidad para enviar la solicitud.');
                 return;
             }
 
@@ -1609,7 +1787,10 @@
             window.open(url, '_blank');
         }
 
-        window.onload = calcularPrecio;
+        window.onload = function() {
+            calcularPrecio();
+            checkCookieConsent();
+        };
     </script>
 </body>
 </html>
