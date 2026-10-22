@@ -1471,7 +1471,7 @@
         <section id="calculadora" class="calculator-wrapper">
             <div class="section-header">
                 <h2>Calculadora de Tarifas</h2>
-                <p>Calcule un importe orientativo con precios finales (impuestos incluidos). La reserva y el precio definitivo se confirman por WhatsApp, según disponibilidad.</p>
+                <p>Calcule un importe orientativo. Los precios mostrados no tienen IVA. La reserva y el precio definitivo se confirman por WhatsApp, según disponibilidad.</p>
             </div>
 
             <div class="calc-box">
@@ -1533,7 +1533,7 @@
                             <p>Total a abonar en la entrega (fianza incluida)</p>
                             <div class="res-total-price" id="res-total">31,00 €</div>
                         </div>
-                        <p class="calc-note">Precios finales con impuestos incluidos. Importe orientativo: el precio definitivo y la disponibilidad se confirman antes de la entrega. La fianza es reembolsable conforme a las Condiciones del Servicio.</p>
+                        <p class="calc-note">Los precios mostrados no tienen IVA. Importe orientativo: el precio definitivo y la disponibilidad se confirman antes de la entrega. La fianza es reembolsable conforme a las Condiciones del Servicio.</p>
                     </div>
 
                     <button onclick="enviarCalculoWhatsApp()" class="btn btn-whatsapp" style="width: 100%;">
@@ -1752,7 +1752,7 @@
 <h4>2. Reserva y disponibilidad</h4>
 <p>La solicitud por la web, WhatsApp o correo no es vinculante hasta que Rivas Asiste la confirme. Todos los servicios, incluidos los urgentes y los de estación AVE, están sujetos a disponibilidad y coordinación previa. Las imágenes son orientativas y el modelo puede variar.</p>
 <h4>3. Precio y pago</h4>
-<p>Los precios mostrados son finales, con impuestos incluidos, y se confirman antes de la entrega. La calculadora es orientativa. Los gastos de entrega se indican por separado según el punto elegido. La forma de pago se comunicará al confirmar la reserva.</p>
+<p>Los precios mostrados no tienen IVA y se confirman antes de la entrega. La calculadora es orientativa. Los gastos de entrega se indican por separado según el punto elegido. La forma de pago se comunicará al confirmar la reserva.</p>
 <h4>4. Fianza</h4>
 <p>Se abona en la entrega (entre 10 € y 25 € según el producto). Se devuelve en el momento de la devolución si el equipo puede revisarse en el acto y, en otro caso, en un máximo de 7 días naturales. Rivas Asiste podrá descontar los importes <strong>justificados</strong> por daños, pérdida, limpieza extraordinaria, días de retraso o penalizaciones previstas en estas condiciones; si el perjuicio superase la fianza, el cliente abonará la diferencia previa justificación.</p>
 <h4>5. Entrega y recogida</h4>
@@ -1811,7 +1811,7 @@
         </div>
     </footer>
 
-    <!-- ================= NUEVO CHATBOT CONVERSACIONAL INTERACTIVO ================= -->
+    <!-- ================= NUEVO CHATBOT CONVERSACIONAL WIDGET ================= -->
     <div class="chatbot-widget">
         <div class="chatbot-window" id="chatWindow">
             <div class="chat-header">
@@ -1833,7 +1833,7 @@
                         ¿Cómo funciona en Atocha o Chamartín?
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_productos')">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
                         ¿Qué tipos de equipos tenéis y precios?
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_urgencias')">
@@ -2062,7 +2062,7 @@
                                    "• <strong>Sillas de ruedas manuales:</strong> Desde 6€/día<br>" +
                                    "• <strong>Andadores y Rollators:</strong> Desde 5€/día<br>" +
                                    "• <strong>Muletas y Bastones:</strong> Desde 3€/día<br><br>" +
-                                   "Ofrecemos tarifas por periodos diarios, semanales o mensuales. Precios finales con impuestos incluidos.", "bot");
+                                   "Ofrecemos tarifas por periodos diarios, semanales o mensuales. Los precios mostrados no tienen IVA.", "bot");
                     actualizarOpciones(`
                         <button class="chat-opt-btn" onclick="navegarChat('ir_calculadora')">
                             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
@@ -2160,7 +2160,7 @@
                         ¿Cómo funciona en Atocha o Chamartín?
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_productos')">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
                         ¿Qué tipos de equipos tenéis y precios?
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_urgencias')">
@@ -2168,7 +2168,7 @@
                         Necesito el material urgentemente hoy
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_fianza')">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8s0 0 0 0z"/></svg>
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8s0 0 0 0 z"/></svg>
                         ¿Cómo funciona la fianza y devolución?
                     </button>
                 </div>
