@@ -1397,6 +1397,14 @@
             }
         }
     
+        /* --- Preguntas frecuentes --- */
+        .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+        .faq-card .service-card-body { justify-content: flex-start; gap: 10px; }
+        .faq-card .service-card-body h3 { margin-bottom: 0; font-size: 1.15rem; line-height: 1.3; }
+        .faq-card .service-card-body p { margin-bottom: 0; }
+        .faq-card:hover { transform: none; box-shadow: var(--shadow-md); border-color: var(--slate-100); }
+        @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; } }
+
         /* --- Cumplimiento / accesibilidad --- */
         .form-hint { display:block; margin-top:6px; font-size:.8rem; color:var(--slate-600); }
         .form-privacy-info { font-size:.78rem; line-height:1.5; color:var(--slate-600); margin:0 0 18px; padding:12px 14px; background:var(--slate-100); border-radius:var(--radius-sm); }
@@ -1579,7 +1587,7 @@
                         </div>
                         <div class="service-card-footer">
                             <div class="price-tag">
-                                Desde <strong>6,00 € / día</strong>
+                                Desde <strong>6,00 € / día + IVA</strong>
                             </div>
                             <a href="#calculadora" class="btn btn-secondary">Calcular</a>
                         </div>
@@ -1598,7 +1606,7 @@
                         </div>
                         <div class="service-card-footer">
                             <div class="price-tag">
-                                Desde <strong>5,00 € / día</strong>
+                                Desde <strong>5,00 € / día + IVA</strong>
                             </div>
                             <a href="#calculadora" class="btn btn-secondary">Calcular</a>
                         </div>
@@ -1617,7 +1625,7 @@
                         </div>
                         <div class="service-card-footer">
                             <div class="price-tag">
-                                Desde <strong>3,00 € / día</strong>
+                                Desde <strong>3,00 € / día + IVA</strong>
                             </div>
                             <a href="#calculadora" class="btn btn-secondary">Calcular</a>
                         </div>
@@ -1630,7 +1638,7 @@
         <section id="calculadora" class="calculator-wrapper">
             <div class="section-header">
                 <h2>Calculadora de Tarifas</h2>
-                <p>Calcule un importe orientativo con precios finales (impuestos incluidos). La reserva y el precio definitivo se confirman por WhatsApp, según disponibilidad.</p>
+                <p>Calcule un importe orientativo. La reserva y el precio definitivo se confirman por WhatsApp, según disponibilidad.</p>
             </div>
 
             <div class="calc-box">
@@ -1663,11 +1671,11 @@
                         <label for="calc-transporte">Punto y modalidad de entrega:</label>
                         <select id="calc-transporte" class="form-control" onchange="calcularPrecio()">
                             <option value="0" selected>Recogida directa en local (0,00 €)</option>
-                            <option value="22">Entrega a domicilio en Rivas-Vaciamadrid (+22,00 €)</option>
-                            <option value="25">Entrega en Hospital Universitario HM Rivas (+25,00 €)</option>
-                            <option value="40">Entrega en Hospital Universitario del Sureste, Arganda (+40,00 €)</option>
-                            <option value="50">Entrega en estación AVE de Atocha (+50,00 €)</option>
-                            <option value="60">Entrega en estación AVE de Chamartín (+60,00 €)</option>
+                            <option value="22">Entrega a domicilio en Rivas-Vaciamadrid (+22,00 € + IVA)</option>
+                            <option value="25">Entrega en Hospital Universitario HM Rivas (+25,00 € + IVA)</option>
+                            <option value="40">Entrega en Hospital Universitario del Sureste, Arganda (+40,00 € + IVA)</option>
+                            <option value="50">Entrega en estación AVE de Atocha (+50,00 € + IVA)</option>
+                            <option value="60">Entrega en estación AVE de Chamartín (+60,00 € + IVA)</option>
                         </select>
                     </div>
                 </div>
@@ -1679,7 +1687,7 @@
                         </div>
 
                         <div class="res-row">
-                            <span>Coste de Alquiler:</span>
+                            <span>Alquiler:</span>
                             <strong id="res-alquiler">6,00 €</strong>
                         </div>
                         <div class="res-row">
@@ -1687,15 +1695,19 @@
                             <strong id="res-transporte">0,00 €</strong>
                         </div>
                         <div class="res-row">
-                            <span>Fianza Reembolsable:</span>
+                            <span id="res-iva-label">IVA (21 %):</span>
+                            <strong id="res-iva">1,26 €</strong>
+                        </div>
+                        <div class="res-row">
+                            <span>Fianza reembolsable:</span>
                             <strong id="res-fianza">25,00 €</strong>
                         </div>
 
                         <div class="res-total-box">
-                            <p>Total a abonar en la entrega (fianza incluida)</p>
-                            <div class="res-total-price" id="res-total">31,00 €</div>
+                            <p>Total a abonar en la entrega (IVA y fianza incluidos)</p>
+                            <div class="res-total-price" id="res-total">32,26 €</div>
                         </div>
-                        <p class="calc-note">Precios finales con impuestos incluidos. El suplemento de entrega incluye la entrega y la recogida. Importe orientativo: el precio definitivo y la disponibilidad se confirman antes de la entrega. La fianza es reembolsable conforme a las Condiciones del Servicio.</p>
+                        <p class="calc-note">El suplemento de entrega incluye la entrega y la recogida. La fianza es reembolsable conforme a las Condiciones del Servicio.</p>
                     </div>
 
                     <button onclick="enviarCalculoWhatsApp()" class="btn btn-whatsapp" style="width: 100%;">
@@ -1764,29 +1776,29 @@
                 <p>Resolvemos sus dudas principales sobre el proceso de alquiler y entrega.</p>
             </div>
 
-            <div class="services-grid">
-                <article class="service-card">
+            <div class="faq-grid">
+                <article class="service-card faq-card">
                     <div class="service-card-body">
                         <h3>¿Cómo funciona el servicio en las estaciones AVE?</h3>
                         <p>Nos coordinamos previamente con el horario de su tren en Madrid Puerta de Atocha o Chamartín para entregarle el material en el punto de encuentro convenido, sujeto a disponibilidad.</p>
                     </div>
                 </article>
 
-                <article class="service-card">
+                <article class="service-card faq-card">
                     <div class="service-card-body">
                         <h3>¿Entregan en hospitales?</h3>
                         <p>Sí. Entregamos y recogemos el material en el Hospital Universitario HM Rivas (Rivas-Vaciamadrid) y en el Hospital Universitario del Sureste (Arganda del Rey), en el punto acordado previamente y sujeto a disponibilidad. El punto de encuentro se fija según las normas de acceso del centro. Rivas Asiste es un servicio independiente, no vinculado a ningún centro sanitario.</p>
                     </div>
                 </article>
 
-                <article class="service-card">
+                <article class="service-card faq-card">
                     <div class="service-card-body">
                         <h3>¿Existe un periodo mínimo de alquiler?</h3>
                         <p>No. Puede alquilar desde un único día. Disponemos de tarifas por 1, 3, 7, 15 y 30 días.</p>
                     </div>
                 </article>
 
-                <article class="service-card">
+                <article class="service-card faq-card">
                     <div class="service-card-body">
                         <h3>¿Cuál es el importe de la fianza?</h3>
                         <p>Se requiere una fianza reembolsable de entre 10 € y 25 € según el producto. Se devuelve al finalizar el alquiler, una vez comprobado el estado del equipo, descontando en su caso los importes justificados por daños, pérdida o penalizaciones previstos en las Condiciones del Servicio.</p>
@@ -1921,7 +1933,7 @@
 <h4>2. Reserva y disponibilidad</h4>
 <p>La solicitud por la web, WhatsApp o correo no es vinculante hasta que Rivas Asiste la confirme. Todos los servicios, incluidos los urgentes y los de estación AVE, están sujetos a disponibilidad y coordinación previa. Las imágenes son orientativas y el modelo puede variar.</p>
 <h4>3. Precio y pago</h4>
-<p>Los precios mostrados son finales, con impuestos incluidos, y se confirman antes de la entrega. La calculadora es orientativa. Los gastos de entrega se indican por separado según el punto elegido. La forma de pago se comunicará al confirmar la reserva.</p>
+<p>Los precios se indican sin IVA y el total a abonar incluye el IVA aplicable. Los precios se confirman antes de la entrega y la calculadora es orientativa. Los gastos de entrega se indican por separado según el punto elegido. La forma de pago se comunicará al confirmar la reserva.</p>
 <h4>4. Fianza</h4>
 <p>Se abona en la entrega (entre 10 € y 25 € según el producto). Se devuelve en el momento de la devolución si el equipo puede revisarse en el acto y, en otro caso, en un máximo de 7 días naturales. Rivas Asiste podrá descontar los importes <strong>justificados</strong> por daños, pérdida, limpieza extraordinaria, días de retraso o penalizaciones previstas en estas condiciones; si el perjuicio superase la fianza, el cliente abonará la diferencia previa justificación.</p>
 <h4>5. Entrega y recogida</h4>
@@ -2087,6 +2099,10 @@
         }
 
         // Calculadora de Tarifas
+        // Tipo de IVA aplicado al alquiler y a la entrega (la fianza no lleva IVA).
+        // Debe coincidir con el del presupuestador (presupuestos.html).
+        const IVA_TIPO = 21;
+
         const tarifas = {
             silla: {
                 fianza: 25,
@@ -2102,46 +2118,51 @@
             }
         };
 
+        const formatoEuro = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+        const aCentimos = (n) => Math.round(n * 100);
+        const eur = (centimos) => formatoEuro.format(centimos / 100);
+
         function calcularPrecio() {
             const tipo = document.getElementById('calc-producto').value;
             const periodo = document.getElementById('calc-periodo').value;
-            const costoTransporte = parseFloat(document.getElementById('calc-transporte').value);
 
             const item = tarifas[tipo];
-            const costoAlquiler = item.dias[periodo];
-            const fianza = item.fianza;
-            const totalPagar = costoAlquiler + costoTransporte + fianza;
+            const alquiler = aCentimos(item.dias[periodo]);
+            const entrega = aCentimos(parseFloat(document.getElementById('calc-transporte').value));
+            const fianza = aCentimos(item.fianza);
 
-            document.getElementById('res-alquiler').innerText = costoAlquiler.toFixed(2).replace('.', ',') + ' €';
-            document.getElementById('res-transporte').innerText = costoTransporte.toFixed(2).replace('.', ',') + ' €';
-            document.getElementById('res-fianza').innerText = fianza.toFixed(2).replace('.', ',') + ' €';
-            document.getElementById('res-total').innerText = totalPagar.toFixed(2).replace('.', ',') + ' €';
+            const base = alquiler + entrega;                  // sujeto a IVA
+            const iva = Math.round(base * IVA_TIPO / 100);    // IVA sobre alquiler + entrega
+            const total = base + iva + fianza;                // la fianza va fuera de la base
+
+            document.getElementById('res-alquiler').innerText = eur(alquiler);
+            document.getElementById('res-transporte').innerText = eur(entrega);
+            document.getElementById('res-iva-label').innerText = 'IVA (' + IVA_TIPO + ' %):';
+            document.getElementById('res-iva').innerText = eur(iva);
+            document.getElementById('res-fianza').innerText = eur(fianza);
+            document.getElementById('res-total').innerText = eur(total);
         }
 
         function enviarCalculoWhatsApp() {
             const tipoSelect = document.getElementById('calc-producto');
             const productoNombre = tipoSelect.options[tipoSelect.selectedIndex].text;
-            
+
             const periodoSelect = document.getElementById('calc-periodo');
             const periodoTexto = periodoSelect.options[periodoSelect.selectedIndex].text;
 
             const transporteSelect = document.getElementById('calc-transporte');
             const transporteTexto = transporteSelect.options[transporteSelect.selectedIndex].text;
 
-            const alquilerVal = document.getElementById('res-alquiler').innerText;
-            const transporteVal = document.getElementById('res-transporte').innerText;
-            const fianzaVal = document.getElementById('res-fianza').innerText;
-            const totalVal = document.getElementById('res-total').innerText;
-
             const texto = `Hola, he calculado un presupuesto en la web:\n\n` +
                           `• *Producto:* ${productoNombre}\n` +
                           `• *Duración:* ${periodoTexto}\n` +
                           `• *Entrega:* ${transporteTexto}\n\n` +
                           `*Desglose:*\n` +
-                          `- Alquiler: ${alquilerVal}\n` +
-                          `- Logística: ${transporteVal}\n` +
-                          `- Fianza: ${fianzaVal}\n` +
-                          `• *TOTAL A ABONAR (fianza incluida):* ${totalVal}\n\n` +
+                          `- Alquiler: ${document.getElementById('res-alquiler').innerText}\n` +
+                          `- Entrega: ${document.getElementById('res-transporte').innerText}\n` +
+                          `- IVA (${IVA_TIPO} %): ${document.getElementById('res-iva').innerText}\n` +
+                          `- Fianza reembolsable: ${document.getElementById('res-fianza').innerText}\n` +
+                          `• *TOTAL A ABONAR (IVA y fianza incluidos):* ${document.getElementById('res-total').innerText}\n\n` +
                           `Deseo confirmar la disponibilidad a través de WhatsApp.`;
 
             const url = `https://wa.me/34601235215?text=${encodeURIComponent(texto)}`;
@@ -2228,10 +2249,10 @@
                 agregarMensaje("¿Qué tipos de equipos tenéis y precios?", "user");
                 setTimeout(() => {
                     agregarMensaje("Disponemos de material higienizado antes de cada alquiler:<br><br>" +
-                                   "• <strong>Sillas de ruedas manuales:</strong> Desde 6€/día<br>" +
-                                   "• <strong>Andadores y Rollators:</strong> Desde 5€/día<br>" +
-                                   "• <strong>Muletas y Bastones:</strong> Desde 3€/día<br><br>" +
-                                   "Ofrecemos tarifas por periodos diarios, semanales o mensuales. Precios finales con impuestos incluidos.", "bot");
+                                   "• <strong>Sillas de ruedas manuales:</strong> Desde 6 €/día + IVA<br>" +
+                                   "• <strong>Andadores y Rollators:</strong> Desde 5 €/día + IVA<br>" +
+                                   "• <strong>Muletas y Bastones:</strong> Desde 3 €/día + IVA<br><br>" +
+                                   "Ofrecemos tarifas por periodos diarios, semanales o mensuales.", "bot");
                     actualizarOpciones(`
                         <button class="chat-opt-btn" onclick="navegarChat('ir_calculadora')">
                             <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
