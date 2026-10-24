@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00363B">
+    <meta name="apple-mobile-web-app-title" content="Presupuestos">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Presupuesto - Rivas Asiste</title>
+
+    <!-- Tailwind CSS CDN (versión fijada) -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#E8F6F6',
+                            100: '#C2E7E9',
+                            500: '#006D77',
+                            600: '#00555E',
+                            700: '#004D53',
+                            800: '#00363B',
+                        },
+                        wa: {
+                            500: '#25D366',
+                            600: '#128C7E',
+                            700: '#075E54',
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        /* Estilos de impresión y PDF */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 10mm;
+            }
+            html, body {
+                background: white !important;
+                color: black !important;
+            }
+            body * {
+                visibility: hidden;
+            }
+            #printableArea, #printableArea * {
+                visibility: visible;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            #printableArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-full flex flex-col font-sans text-slate-800 bg-slate-100 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-brand-800 to-brand-600 text-white shadow-md sticky top-0 z-30 no-print">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center text-xl font-bold border border-white/20">
+                    <i class="fa-solid fa-wheelchair text-amber-400" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight tracking-wide">RivasAsiste<span class="text-amber-400">.es</span></h1>
+                    <p class="text-xs text-brand-100 font-medium">Alquiler de Sillas, Andadores y Muletas</p>
+                </div>
+            </div>
+            <button type="button" id="btnHistory" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition active:scale-95 border border-white/20">
+                <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+                <span class="hidden sm:inline">Historial</span>
+                <span class="sm:hidden sr-only">Historial</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto p-3 sm:p-6 space-y-6">
+
+        <!-- 1. Datos del cliente y servicio -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden no-print">
+            <div class="bg-slate-50 border-b border-slate-200/80 px-4 py-3 flex items-center justify-between">
+                <h2 class="font-bold text-slate-700 text-sm sm:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-user-gear text-brand-600" aria-hidden="true"></i> 1. Datos del cliente y servicio
+                </h2>
+                <button type="button" id="btnClear" class="text-xs text-slate-500 hover:text-red-600 flex items-center gap-1">
+                    <i class="fa-solid fa-rotate-right" aria-hidden="true"></i> Limpiar
+                </button>
+            </div>
+
+            <div class="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="sm:col-span-1">
+                    <label for="clientName" class="block text-xs font-bold text-slate-600 uppercase mb-1">Nombre y apellidos *</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-user" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" id="clientName" autocomplete="name" placeholder="Ej: Jorge Martinez"
+                            class="w-full pl-9 pr-3 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none transition">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-1">
+                    <label for="clientPhone" class="block text-xs font-bold text-slate-600 uppercase mb-1">WhatsApp de contacto *</label>
+                    <div class="flex">
+                        <span class="inline-flex items-center px-3 text-xs text-slate-600 bg-slate-200 border border-r-0 border-slate-300 rounded-l-xl font-semibold">
+                            +34
+                        </span>
+                        <input type="tel" id="clientPhone" inputmode="tel" autocomplete="tel-national" placeholder="601235215"
+                            class="w-full px-3 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded-r-xl focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none transition">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-2 bg-brand-50/50 p-4 rounded-xl border border-brand-100">
+                    <p class="block text-xs font-bold text-brand-800 uppercase mb-2"><i class="fa-solid fa-box-open" aria-hidden="true"></i> Equipamiento y duración (tarifas oficiales)</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label for="quickProduct" class="block text-[11px] font-semibold text-slate-600 mb-1">Producto</label>
+                            <select id="quickProduct" class="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500">
+                                <option value="silla">Silla de ruedas manual</option>
+                                <option value="andador">Andador / rollator</option>
+                                <option value="muletas">Muletas / bastones</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="quickPeriod" class="block text-[11px] font-semibold text-slate-600 mb-1">Periodo</label>
+                            <select id="quickPeriod" class="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500">
+                                <option value="1">1 día</option>
+                                <option value="3" selected>3 días</option>
+                                <option value="7">1 semana (7 días)</option>
+                                <option value="15">15 días</option>
+                                <option value="30">1 mes (30 días)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="quickTransport" class="block text-[11px] font-semibold text-slate-600 mb-1">Entrega / desplazamiento</label>
+                            <select id="quickTransport" class="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500">
+                                <option value="0|Recogida directa en local">Recogida directa en local (0,00 €)</option>
+                                <option value="22|Entrega a domicilio en Rivas-Vaciamadrid">Domicilio en Rivas (+22,00 € + IVA)</option>
+                                <option value="25|Entrega en Hospital Universitario HM Rivas">Hospital HM Rivas (+25,00 € + IVA)</option>
+                                <option value="40|Entrega en Hospital Universitario del Sureste, Arganda" selected>Hospital del Sureste (+40,00 € + IVA)</option>
+                                <option value="50|Entrega en estación AVE de Atocha">Estación AVE Atocha (+50,00 € + IVA)</option>
+                                <option value="60|Entrega en estación AVE de Chamartín">Estación AVE Chamartín (+60,00 € + IVA)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Conceptos -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden no-print">
+            <div class="bg-slate-50 border-b border-slate-200/80 px-4 py-3 flex items-center justify-between">
+                <h2 class="font-bold text-slate-700 text-sm sm:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-brand-600" aria-hidden="true"></i> 2. Desglose de alquiler y fianza reembolsable
+                </h2>
+            </div>
+
+            <div class="p-4 sm:p-6 space-y-4">
+                <div id="itemsContainer" class="space-y-3">
+                    <!-- Conceptos dinámicos -->
+                </div>
+
+                <button type="button" id="btnAddItem"
+                    class="w-full py-3 border-2 border-dashed border-brand-500/40 text-brand-600 hover:bg-brand-50 font-semibold rounded-xl text-sm flex items-center justify-center gap-2 transition active:scale-[0.99]">
+                    <i class="fa-solid fa-plus-circle" aria-hidden="true"></i> Añadir concepto adicional
+                </button>
+            </div>
+        </section>
+
+        <!-- 3. Observaciones -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden no-print">
+            <div class="bg-slate-50 border-b border-slate-200/80 px-4 py-3">
+                <h2 class="font-bold text-slate-700 text-sm sm:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-brand-600" aria-hidden="true"></i> 3. Observaciones y detalles de entrega
+                </h2>
+            </div>
+
+            <div class="p-4 sm:p-6">
+                <label for="budgetNotes" class="block text-xs font-bold text-slate-600 uppercase mb-1">Horario / tren / detalles de entrega</label>
+                <input type="text" id="budgetNotes" placeholder="Ej: Entrega coordinada previa en punto acordado"
+                    class="w-full px-3 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none">
+            </div>
+        </section>
+
+        <!-- Documento de presupuesto (lo que se imprime / guarda en PDF) -->
+        <section id="printableArea" class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+            <div class="bg-brand-800 text-white p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h2 class="text-2xl font-black tracking-tight text-white uppercase">Presupuesto de Alquiler</h2>
+                    <p class="text-xs text-brand-100 mt-1 font-medium">Rivas Asiste | Soluciones de Movilidad Reducida</p>
+                </div>
+                <div class="text-left sm:text-right">
+                    <span id="previewNumber" class="text-xs bg-brand-700 text-amber-400 font-mono px-3 py-1 rounded-md font-bold inline-block mb-1">Nº RIVAS-0000-0000</span>
+                    <p id="previewDate" class="text-xs text-brand-100">Fecha: --/--/----</p>
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-6">
+                <!-- Emisor / Cliente -->
+                <div class="grid grid-cols-2 gap-6 pb-6 border-b border-slate-200">
+                    <div>
+                        <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Emisor</h3>
+                        <p class="font-bold text-slate-800 text-base">Rivas Asiste</p>
+                        <p class="text-xs text-slate-600">Rivas-Vaciamadrid, Madrid</p>
+                        <p class="text-xs text-slate-600">Web: <span class="font-semibold text-brand-700">rivasasiste.es</span> | Tel: <span class="font-semibold text-slate-700">601 235 215</span></p>
+                    </div>
+                    <div>
+                        <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Cliente</h3>
+                        <p id="previewClient" class="font-bold text-slate-800 text-base break-words">Nombre del cliente</p>
+                        <p id="previewPhone" class="text-xs text-slate-600">Teléfono no especificado</p>
+                    </div>
+                </div>
+
+                <!-- Tabla de conceptos -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm">
+                        <thead>
+                            <tr class="border-b-2 border-slate-200 text-slate-500 font-bold text-[11px] uppercase tracking-wider">
+                                <th scope="col" class="pb-3">Descripción</th>
+                                <th scope="col" class="pb-3 text-center w-16">Cant.</th>
+                                <th scope="col" class="pb-3 text-right w-32">P. unit. (sin IVA)</th>
+                                <th scope="col" class="pb-3 text-right w-32">Importe (sin IVA)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="previewTableBody" class="divide-y divide-slate-100 text-slate-700">
+                            <!-- Items dinámicos -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Totales y aviso -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end pt-4 border-t border-slate-200 gap-6">
+                    <div class="text-xs text-slate-500 max-w-sm space-y-1.5">
+                        <p class="font-semibold text-amber-800 bg-amber-50 p-3 rounded-lg border border-amber-200 text-[11px] leading-relaxed">
+                            <i class="fa-solid fa-circle-exclamation text-amber-600 mr-1" aria-hidden="true"></i> Presupuesto orientativo y no vinculante, sujeto a confirmación de disponibilidad en el momento de la reserva.
+                        </p>
+                        <p id="previewNotesDisplay" class="italic text-slate-600 hidden break-words"></p>
+                    </div>
+
+                    <div class="w-full sm:w-80 shrink-0 space-y-2 text-right bg-slate-50 p-4 rounded-xl border border-slate-200/80">
+                        <div class="flex justify-between items-center gap-3 text-xs text-slate-600">
+                            <span class="whitespace-nowrap">Alquiler + entrega (sin IVA):</span>
+                            <span id="previewSubtotal" class="font-semibold text-slate-800 whitespace-nowrap">0,00 €</span>
+                        </div>
+                        <div class="flex justify-between items-center gap-3 text-xs text-slate-600">
+                            <span id="previewIvaLabel" class="whitespace-nowrap">IVA (21 %):</span>
+                            <span id="previewIva" class="font-semibold text-slate-800 whitespace-nowrap">0,00 €</span>
+                        </div>
+                        <div class="flex justify-between items-center gap-3 text-xs text-slate-600">
+                            <span class="whitespace-nowrap">Fianza reembolsable (sin IVA):</span>
+                            <span id="previewFianza" class="font-semibold text-slate-800 whitespace-nowrap">0,00 €</span>
+                        </div>
+                        <div class="flex justify-between items-center gap-3 text-sm font-extrabold text-slate-900 pt-2 border-t border-slate-300">
+                            <span class="uppercase tracking-tight text-brand-800 whitespace-nowrap">Total a abonar</span>
+                            <span id="previewTotal" class="text-brand-700 text-xl font-black whitespace-nowrap">0,00 €</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pie legal -->
+                <div class="pt-6 border-t border-slate-200/80 text-[10px] text-slate-400 space-y-1.5 pb-2">
+                    <div class="flex justify-between items-center font-semibold text-slate-500 uppercase tracking-wider text-[9px]">
+                        <span>Rivas Asiste • Servicio Independiente de Movilidad</span>
+                        <span>www.rivasasiste.es</span>
+                    </div>
+                    <p>
+                        <strong>IVA:</strong> Los importes de alquiler y entrega se indican sin IVA; el IVA (<span id="ivaNotaTipo">21</span> %) se suma en el total. La fianza no lleva IVA porque es reembolsable.
+                    </p>
+                    <p>
+                        <strong>Información de fianza y servicio:</strong> La fianza es un depósito reembolsable exigido para garantizar el buen estado y la devolución puntual del equipo de movilidad. Rivas Asiste es un servicio independiente no vinculado formalmente a centros sanitarios ni estaciones de transporte.
+                    </p>
+                    <p>
+                        <strong>Protección de datos (RGPD):</strong> Los datos de este documento se tratan con la única finalidad de gestionar la reserva del material. Puede ejercer sus derechos de acceso, rectificación y supresión enviando un email a jorgempleo@hotmail.es.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Barra de acciones inferior fija -->
+    <footer class="sticky bottom-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 pt-3 z-40 no-print shadow-2xl" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));">
+        <div class="max-w-4xl mx-auto flex gap-2 sm:gap-3">
+            <button type="button" id="btnWhatsApp"
+                class="flex-1 bg-wa-600 hover:bg-wa-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 text-sm sm:text-base transition active:scale-95">
+                <i class="fa-brands fa-whatsapp text-xl" aria-hidden="true"></i>
+                <span>Enviar por WhatsApp</span>
+            </button>
+
+            <button type="button" id="btnCopy" title="Copiar texto" aria-label="Copiar texto del presupuesto"
+                class="bg-slate-800 hover:bg-slate-900 text-white font-semibold py-3 px-4 rounded-xl shadow flex items-center justify-center transition active:scale-95">
+                <i class="fa-regular fa-copy text-lg" aria-hidden="true"></i>
+            </button>
+
+            <button type="button" id="btnPrint" title="Guardar como PDF / Imprimir" aria-label="Guardar como PDF o imprimir"
+                class="bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-4 rounded-xl shadow flex items-center justify-center transition active:scale-95">
+                <i class="fa-solid fa-file-pdf text-lg" aria-hidden="true"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Modal Historial -->
+    <div id="historyModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print" role="dialog" aria-modal="true" aria-labelledby="historyTitle">
+        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[80vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 bg-brand-800 text-white flex justify-between items-center">
+                <h3 id="historyTitle" class="font-bold flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> Presupuestos guardados</h3>
+                <button type="button" id="btnCloseHistoryX" aria-label="Cerrar historial" class="text-brand-100 hover:text-white"><i class="fa-solid fa-xmark text-xl" aria-hidden="true"></i></button>
+            </div>
+            <div id="historyList" class="p-4 overflow-y-auto flex-1 divide-y divide-slate-100">
+                <!-- Historial -->
+            </div>
+            <div class="p-3 bg-slate-50 border-t border-slate-200 flex justify-between items-center">
+                <button type="button" id="btnClearHistory" class="text-xs text-red-600 hover:underline">Borrar historial</button>
+                <button type="button" id="btnCloseHistory" class="px-4 py-1.5 bg-slate-300 text-slate-800 text-xs font-bold rounded-lg">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div id="toast" role="status" aria-live="polite" class="fixed top-5 right-5 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 transition-all duration-300 transform -translate-y-24 opacity-0 pointer-events-none z-[60] no-print">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-green-400 text-lg" aria-hidden="true"></i>
+        <span id="toastMsg" class="text-xs font-semibold">Notificación</span>
+    </div>
+
+    <script>
+        (() => {
+            'use strict';
+
+            // ---------- Datos ----------
+            const STORAGE_KEY = 'rivas_asiste_budgets';
+            const COUNTER_KEY = 'rivas_asiste_counter';
+            const MAX_HISTORY = 20;
+            // Tipo de IVA aplicado al alquiler y a la entrega (la fianza no lleva IVA).
+            // Debe coincidir con el de la web (index.html).
+            const IVA_TIPO = 21;
+            const periodLabels = { 1: '1 día', 3: '3 días', 7: '1 semana', 15: '15 días', 30: '1 mes' };
+
+            const tarifario = {
+                silla:   { name: 'Silla de ruedas manual', fianza: 25, dias: { 1: 6, 3: 16, 7: 34, 15: 48, 30: 68 } },
+                andador: { name: 'Andador / rollator',     fianza: 20, dias: { 1: 5, 3: 12, 7: 22, 15: 32, 30: 45 } },
+                muletas: { name: 'Muletas / bastones',     fianza: 10, dias: { 1: 3, 3: 7,  7: 12, 15: 18, 30: 24 } }
+            };
+
+            const eurFormatter = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+            const money = (n) => eurFormatter.format(n);
+            const toCents = (n) => Math.round((Number(n) || 0) * 100);
+
+            let items = [];
+            let nextId = 1;
+            let budgetNumber = 1;
+            let toastTimer = null;
+
+            const $ = (id) => document.getElementById(id);
+
+            // ---------- Utilidades ----------
+            function formatRef(n) {
+                return 'RIVAS-' + new Date().getFullYear() + '-' + String(n).padStart(4, '0');
+            }
+
+            function readHistory() {
+                try {
+                    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+                    return Array.isArray(data) ? data : [];
+                } catch (e) {
+                    return [];
+                }
+            }
+
+            function writeHistory(history) {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+                } catch (e) { /* almacenamiento no disponible */ }
+            }
+
+            function peekNextBudgetNumber() {
+                try {
+                    return (parseInt(localStorage.getItem(COUNTER_KEY), 10) || 0) + 1;
+                } catch (e) {
+                    return Math.floor(1000 + Math.random() * 9000);
+                }
+            }
+
+            function normalizePhone(raw) {
+                let digits = String(raw || '').replace(/\D/g, '');
+                if (digits.startsWith('0034')) digits = digits.slice(4);
+                else if (digits.startsWith('34') && digits.length > 9) digits = digits.slice(2);
+                return digits;
+            }
+
+            function showToast(message, type = 'success') {
+                const toast = $('toast');
+                const icons = {
+                    success: 'fa-solid fa-circle-check text-green-400 text-lg',
+                    error:   'fa-solid fa-circle-xmark text-red-400 text-lg',
+                    info:    'fa-solid fa-circle-info text-sky-400 text-lg'
+                };
+                $('toastMsg').textContent = message;
+                $('toastIcon').className = icons[type] || icons.info;
+
+                toast.classList.remove('-translate-y-24', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('-translate-y-24', 'opacity-0');
+                }, 3000);
+            }
+
+            // ---------- Conceptos ----------
+            function applyPresetProduct() {
+                const producto = tarifario[$('quickProduct').value];
+                const periodSelect = $('quickPeriod');
+                const [costStr, ...nameParts] = $('quickTransport').value.split('|');
+                const transportCost = parseFloat(costStr) || 0;
+                const transportName = nameParts.join('|');
+                const periodText = periodLabels[periodSelect.value];
+
+                // Se conservan los conceptos añadidos a mano
+                const customItems = items.filter((i) => i.custom);
+
+                items = [
+                    { id: nextId++, description: `Alquiler ${producto.name} (${periodText})`, quantity: 1, price: producto.dias[periodSelect.value], isFianza: false, custom: false },
+                    { id: nextId++, description: transportName, quantity: 1, price: transportCost, isFianza: false, custom: false },
+                    ...customItems,
+                    { id: nextId++, description: `Fianza reembolsable (${producto.name})`, quantity: 1, price: producto.fianza, isFianza: true, custom: false }
+                ];
+
+                renderItems();
+                calculateTotals();
+            }
+
+            function buildNumberInput({ value, min, step, align, width, onInput }) {
+                const wrap = document.createElement('div');
+                wrap.className = width;
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.min = min;
+                if (step) input.step = step;
+                input.value = value;
+                input.className = `w-full px-2 py-2 text-sm ${align} bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none`;
+                input.addEventListener('input', () => onInput(input.value));
+                wrap.appendChild(input);
+                return { wrap, input };
+            }
+
+            function renderItems() {
+                const container = $('itemsContainer');
+                container.replaceChildren();
+
+                items.forEach((item) => {
+                    const row = document.createElement('div');
+                    row.className = `flex flex-col sm:flex-row gap-2 items-center p-3 rounded-xl border ${item.isFianza ? 'bg-amber-50/50 border-amber-200' : 'bg-slate-50 border-slate-200'}`;
+
+                    // Descripción
+                    const descWrap = document.createElement('div');
+                    descWrap.className = 'flex-1 w-full';
+                    const desc = document.createElement('input');
+                    desc.type = 'text';
+                    desc.value = item.description;
+                    desc.setAttribute('aria-label', 'Descripción del concepto');
+                    desc.className = 'w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none';
+                    desc.addEventListener('input', () => updateItem(item.id, 'description', desc.value));
+                    descWrap.appendChild(desc);
+
+                    // Cantidad y precio
+                    const controls = document.createElement('div');
+                    controls.className = 'flex gap-2 w-full sm:w-auto';
+
+                    const qty = buildNumberInput({
+                        value: item.quantity, min: '1', step: '1', align: 'text-center', width: 'w-20',
+                        onInput: (v) => updateItem(item.id, 'quantity', Math.max(0, parseFloat(v) || 0))
+                    });
+                    qty.input.setAttribute('aria-label', 'Cantidad');
+
+                    const price = buildNumberInput({
+                        value: item.price, min: '0', step: '0.01', align: 'text-right', width: 'w-28',
+                        onInput: (v) => updateItem(item.id, 'price', Math.max(0, parseFloat(v) || 0))
+                    });
+                    price.input.setAttribute('aria-label', 'Precio unitario en euros');
+
+                    const del = document.createElement('button');
+                    del.type = 'button';
+                    del.title = 'Eliminar';
+                    del.setAttribute('aria-label', 'Eliminar concepto');
+                    del.className = 'p-2 text-red-500 hover:bg-red-50 rounded-lg transition';
+                    del.innerHTML = '<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';
+                    del.addEventListener('click', () => removeItem(item.id));
+
+                    controls.append(qty.wrap, price.wrap, del);
+                    row.append(descWrap, controls);
+                    container.appendChild(row);
+                });
+            }
+
+            function addItem(desc = 'Concepto adicional', qty = 1, price = 0) {
+                // Se inserta antes de la fianza para que ésta quede siempre al final
+                const newItem = { id: nextId++, description: desc, quantity: qty, price, isFianza: false, custom: true };
+                const fianzaIndex = items.findIndex((i) => i.isFianza);
+                if (fianzaIndex === -1) items.push(newItem);
+                else items.splice(fianzaIndex, 0, newItem);
+                renderItems();
+                calculateTotals();
+            }
+
+            function removeItem(id) {
+                items = items.filter((item) => item.id !== id);
+                renderItems();
+                calculateTotals();
+            }
+
+            function updateItem(id, field, value) {
+                const item = items.find((i) => i.id === id);
+                if (item) {
+                    item[field] = value;
+                    calculateTotals();
+                }
+            }
+
+            // ---------- Totales y vista previa ----------
+            function isFianzaItem(item) {
+                return item.isFianza || String(item.description).toLowerCase().includes('fianza');
+            }
+
+            function calculateTotals() {
+                let baseCents = 0;
+                let fianzaCents = 0;
+
+                items.forEach((item) => {
+                    const lineCents = Math.round(item.quantity * toCents(item.price));
+                    if (isFianzaItem(item)) fianzaCents += lineCents;
+                    else baseCents += lineCents;
+                });
+
+                // El IVA se calcula sobre alquiler + entrega; la fianza queda fuera
+                const ivaCents = Math.round(baseCents * IVA_TIPO / 100);
+
+                $('previewSubtotal').textContent = money(baseCents / 100);
+                $('previewIvaLabel').textContent = 'IVA (' + IVA_TIPO + ' %):';
+                $('previewIva').textContent = money(ivaCents / 100);
+                $('previewFianza').textContent = money(fianzaCents / 100);
+                $('previewTotal').textContent = money((baseCents + ivaCents + fianzaCents) / 100);
+                $('ivaNotaTipo').textContent = IVA_TIPO;
+
+                updatePreview();
+            }
+
+            function updatePreview() {
+                const name = $('clientName').value.trim();
+                const phone = normalizePhone($('clientPhone').value);
+                const notes = $('budgetNotes').value.trim();
+
+                $('previewNumber').textContent = 'Nº ' + formatRef(budgetNumber);
+                $('previewClient').textContent = name || 'Nombre del cliente';
+                $('previewPhone').textContent = phone ? '+34 ' + phone : 'Teléfono no especificado';
+
+                const notesElem = $('previewNotesDisplay');
+                if (notes) {
+                    notesElem.textContent = 'Observaciones: ' + notes;
+                    notesElem.classList.remove('hidden');
+                } else {
+                    notesElem.textContent = '';
+                    notesElem.classList.add('hidden');
+                }
+
+                const tbody = $('previewTableBody');
+                tbody.replaceChildren();
+
+                items.forEach((item) => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'text-slate-700';
+
+                    const tdDesc = document.createElement('td');
+                    tdDesc.className = 'py-2.5 font-medium' + (item.isFianza ? ' text-amber-700' : '');
+                    tdDesc.textContent = item.description || 'Concepto';
+
+                    const tdQty = document.createElement('td');
+                    tdQty.className = 'py-2.5 text-center';
+                    tdQty.textContent = item.quantity;
+
+                    const tdPrice = document.createElement('td');
+                    tdPrice.className = 'py-2.5 text-right whitespace-nowrap';
+                    tdPrice.textContent = money(item.price || 0);
+
+                    const tdTotal = document.createElement('td');
+                    tdTotal.className = 'py-2.5 text-right font-semibold whitespace-nowrap';
+                    tdTotal.textContent = money(Math.round(item.quantity * toCents(item.price)) / 100);
+
+                    tr.append(tdDesc, tdQty, tdPrice, tdTotal);
+                    tbody.appendChild(tr);
+                });
+            }
+
+            // ---------- Texto para WhatsApp / portapapeles ----------
+            function generateTextSummary() {
+                const name = $('clientName').value.trim() || 'Estimado/a cliente';
+                const notes = $('budgetNotes').value.trim();
+
+                let msg = `♿ *RIVAS ASISTE - PRESUPUESTO* ♿\n`;
+                msg += `📄 *Ref:* ${formatRef(budgetNumber)}\n`;
+                msg += `👤 *Cliente:* ${name}\n`;
+                msg += `-----------------------------------\n`;
+                msg += `📋 *DESGLOSE:*\n`;
+
+                items.forEach((item) => {
+                    const lineTotal = money(Math.round(item.quantity * toCents(item.price)) / 100);
+                    msg += `• ${item.description}: *${lineTotal}*\n`;
+                });
+
+                msg += `-----------------------------------\n`;
+                msg += `💰 *Alquiler + entrega (sin IVA):* ${$('previewSubtotal').textContent}\n`;
+                msg += `🧾 *IVA (${IVA_TIPO} %):* ${$('previewIva').textContent}\n`;
+                msg += `🔒 *Fianza reembolsable (sin IVA):* ${$('previewFianza').textContent}\n`;
+                msg += `📌 *TOTAL A ABONAR EN ENTREGA (IVA y fianza incluidos):* *${$('previewTotal').textContent}*\n`;
+                msg += `⚠️ *Nota:* Presupuesto orientativo y no vinculante, sujeto a confirmación de disponibilidad en el momento de la reserva.\n`;
+
+                if (notes) {
+                    msg += `📝 *Observaciones:* ${notes}\n`;
+                }
+
+                msg += `\nPara confirmar la reserva y coordinar la entrega, respóndenos por este medio.\n`;
+                msg += `🌐 *www.rivasasiste.es*`;
+
+                return msg;
+            }
+
+            async function copyText(text) {
+                try {
+                    if (navigator.clipboard && window.isSecureContext) {
+                        await navigator.clipboard.writeText(text);
+                        return true;
+                    }
+                } catch (e) { /* se prueba el método alternativo */ }
+
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.setAttribute('readonly', '');
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                let ok = false;
+                try {
+                    ok = document.execCommand('copy');
+                } catch (e) {
+                    ok = false;
+                }
+                document.body.removeChild(textarea);
+                return ok;
+            }
+
+            // ---------- Validación ----------
+            function validateName() {
+                if (!$('clientName').value.trim()) {
+                    showToast('Introduce el nombre del cliente', 'error');
+                    $('clientName').focus();
+                    return false;
+                }
+                return true;
+            }
+
+            function validatePhone() {
+                const phone = normalizePhone($('clientPhone').value);
+                if (phone.length !== 9) {
+                    showToast('Introduce un WhatsApp de 9 dígitos', 'error');
+                    $('clientPhone').focus();
+                    return false;
+                }
+                return true;
+            }
+
+            // ---------- Acciones ----------
+            function sendWhatsApp() {
+                if (!validateName() || !validatePhone()) return;
+
+                saveToHistory();
+
+                const text = generateTextSummary();
+                copyText(text); // copia de seguridad silenciosa
+
+                const phone = '34' + normalizePhone($('clientPhone').value);
+                window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+            }
+
+            async function copyToClipboard() {
+                const ok = await copyText(generateTextSummary());
+                showToast(ok ? '¡Presupuesto copiado al portapapeles!' : 'Error al copiar el texto', ok ? 'success' : 'error');
+            }
+
+            function triggerPrint() {
+                if (!validateName()) return;
+                saveToHistory();
+
+                const previousTitle = document.title;
+                document.title = `Presupuesto ${formatRef(budgetNumber)} - ${$('clientName').value.trim()}`;
+                window.addEventListener('afterprint', () => { document.title = previousTitle; }, { once: true });
+                window.print();
+            }
+
+            function clearForm() {
+                if (!confirm('¿Deseas reiniciar los datos?')) return;
+
+                $('clientName').value = '';
+                $('clientPhone').value = '';
+                $('budgetNotes').value = '';
+                items = items.filter((i) => !i.custom);
+                budgetNumber = peekNextBudgetNumber();
+                applyPresetProduct();
+                showToast('Formulario restablecido', 'info');
+            }
+
+            // ---------- Historial ----------
+            function saveToHistory() {
+                const ref = formatRef(budgetNumber);
+                const entry = {
+                    id: Date.now(),
+                    ref,
+                    client: $('clientName').value.trim() || 'Sin Nombre',
+                    total: $('previewTotal').textContent,
+                    date: new Date().toLocaleDateString('es-ES')
+                };
+
+                // Si ya existe ese presupuesto se actualiza en lugar de duplicarlo
+                const history = readHistory().filter((h) => h.ref !== ref);
+                history.unshift(entry);
+                writeHistory(history.slice(0, MAX_HISTORY));
+
+                try {
+                    localStorage.setItem(COUNTER_KEY, String(budgetNumber));
+                } catch (e) { /* almacenamiento no disponible */ }
+            }
+
+            function openHistoryModal() {
+                const history = readHistory();
+                const list = $('historyList');
+                list.replaceChildren();
+
+                if (history.length === 0) {
+                    const empty = document.createElement('p');
+                    empty.className = 'text-center text-slate-400 py-6 text-sm';
+                    empty.textContent = 'No hay presupuestos guardados aún.';
+                    list.appendChild(empty);
+                } else {
+                    history.forEach((entry) => {
+                        const row = document.createElement('div');
+                        row.className = 'py-3 flex justify-between items-center gap-3 text-xs sm:text-sm';
+
+                        const left = document.createElement('div');
+                        left.className = 'min-w-0';
+                        const client = document.createElement('p');
+                        client.className = 'font-bold text-slate-800 truncate';
+                        client.textContent = entry.client;
+                        const meta = document.createElement('p');
+                        meta.className = 'text-slate-400 text-xs';
+                        meta.textContent = `${entry.ref} • ${entry.date}`;
+                        left.append(client, meta);
+
+                        const total = document.createElement('span');
+                        total.className = 'font-bold text-brand-700 whitespace-nowrap';
+                        total.textContent = entry.total;
+
+                        row.append(left, total);
+                        list.appendChild(row);
+                    });
+                }
+                $('historyModal').classList.remove('hidden');
+            }
+
+            function closeHistoryModal() {
+                $('historyModal').classList.add('hidden');
+            }
+
+            function clearHistory() {
+                if (!confirm('¿Deseas vaciar el historial?')) return;
+                try {
+                    localStorage.removeItem(STORAGE_KEY);
+                } catch (e) { /* almacenamiento no disponible */ }
+                openHistoryModal();
+                showToast('Historial vaciado', 'info');
+            }
+
+            // ---------- Inicio ----------
+            function init() {
+                $('previewDate').textContent = 'Fecha: ' + new Date().toLocaleDateString('es-ES');
+                budgetNumber = peekNextBudgetNumber();
+
+                $('clientName').addEventListener('input', updatePreview);
+                $('clientPhone').addEventListener('input', updatePreview);
+                $('budgetNotes').addEventListener('input', updatePreview);
+
+                ['quickProduct', 'quickPeriod', 'quickTransport'].forEach((id) => {
+                    $(id).addEventListener('change', applyPresetProduct);
+                });
+
+                $('btnHistory').addEventListener('click', openHistoryModal);
+                $('btnClear').addEventListener('click', clearForm);
+                $('btnAddItem').addEventListener('click', () => addItem());
+                $('btnWhatsApp').addEventListener('click', sendWhatsApp);
+                $('btnCopy').addEventListener('click', copyToClipboard);
+                $('btnPrint').addEventListener('click', triggerPrint);
+                $('btnCloseHistory').addEventListener('click', closeHistoryModal);
+                $('btnCloseHistoryX').addEventListener('click', closeHistoryModal);
+                $('btnClearHistory').addEventListener('click', clearHistory);
+
+                $('historyModal').addEventListener('click', (e) => {
+                    if (e.target === $('historyModal')) closeHistoryModal();
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closeHistoryModal();
+                });
+
+                applyPresetProduct();
+            }
+
+            document.addEventListener('DOMContentLoaded', init);
+        })();
+    </script>
+</body>
+</html>
