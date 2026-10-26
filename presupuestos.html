@@ -10,6 +10,23 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Presupuesto - Rivas Asiste</title>
 
+    <!-- Script de protección por contraseña -->
+    <script>
+        (function() {
+            const CLAVE_CORRECTA = "120423"; 
+
+            if (sessionStorage.getItem("auth_presupuestos") !== "true") {
+                const pass = prompt("Acceso restringido. Introduce la contraseña:");
+                if (pass === CLAVE_CORRECTA) {
+                    sessionStorage.setItem("auth_presupuestos", "true");
+                } else {
+                    alert("Contraseña incorrecta.");
+                    window.location.href = "/"; 
+                }
+            }
+        })();
+    </script>
+
     <!-- Tailwind CSS CDN (versión fijada) -->
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <!-- FontAwesome Icons -->
