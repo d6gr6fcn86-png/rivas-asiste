@@ -164,8 +164,8 @@
                     </div>
                 </div>
 
-                <div class="sm:col-span-2 bg-brand-50/50 p-4 rounded-xl border border-brand-100">
-                    <p class="block text-xs font-bold text-brand-800 uppercase mb-2"><i class="fa-solid fa-box-open" aria-hidden="true"></i> Equipamiento y duración (tarifas oficiales)</p>
+                <div class="sm:col-span-2 bg-brand-50/50 p-4 rounded-xl border border-brand-100 space-y-3">
+                    <p class="block text-xs font-bold text-brand-800 uppercase"><i class="fa-solid fa-box-open" aria-hidden="true"></i> Equipamiento y duración (tarifas oficiales)</p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                         <div>
                             <label for="quickProduct" class="block text-[11px] font-semibold text-slate-600 mb-1">Producto</label>
@@ -189,13 +189,21 @@
                             <label for="quickTransport" class="block text-[11px] font-semibold text-slate-600 mb-1">Entrega / desplazamiento</label>
                             <select id="quickTransport" class="w-full px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500">
                                 <option value="0|Recogida directa en local">Recogida directa en local (0,00 €)</option>
-                                <option value="22|Entrega a domicilio en Rivas-Vaciamadrid">Domicilio en Rivas (+22,00 € + IVA)</option>
-                                <option value="25|Entrega in Hospital Universitario HM Rivas">Hospital HM Rivas (+25,00 € + IVA)</option>
-                                <option value="40|Entrega en Hospital Universitario del Sureste, Arganda" selected>Hospital del Sureste (+40,00 € + IVA)</option>
-                                <option value="50|Entrega en estación AVE de Atocha">Estación AVE Atocha (+50,00 € + IVA)</option>
-                                <option value="60|Entrega en estación AVE de Chamartín">Estación AVE Chamartín (+60,00 € + IVA)</option>
+                                <option value="22|Entrega a domicilio en Rivas-Vaciamadrid">Domicilio en Rivas (+22,00 €)</option>
+                                <option value="25|Entrega in Hospital Universitario HM Rivas">Hospital HM Rivas (+25,00 €)</option>
+                                <option value="40|Entrega en Hospital Universitario del Sureste, Arganda" selected>Hospital del Sureste (+40,00 €)</option>
+                                <option value="50|Entrega en estación AVE de Atocha">Estación AVE Atocha (+50,00 €)</option>
+                                <option value="60|Entrega en estación AVE de Chamartín">Estación AVE Chamartín (+60,00 €)</option>
                             </select>
                         </div>
+                    </div>
+                    <!-- Opción IVA en el bloque de configuración -->
+                    <div class="pt-2 border-t border-brand-100 flex items-center justify-between">
+                        <label for="includeIva" class="text-xs font-bold text-brand-900 cursor-pointer flex items-center gap-2 select-none">
+                            <input type="checkbox" id="includeIva" class="w-4 h-4 accent-brand-600 rounded cursor-pointer">
+                            Aplicar IVA (21 %) al presupuesto
+                        </label>
+                        <span class="text-[11px] text-slate-500">Desmarque si no desea incluir el IVA</span>
                     </div>
                 </div>
             </div>
@@ -272,8 +280,8 @@
                             <tr class="border-b-2 border-slate-200 text-slate-500 font-bold text-[11px] uppercase tracking-wider">
                                 <th scope="col" class="pb-3">Descripción</th>
                                 <th scope="col" class="pb-3 text-center w-16">Cant.</th>
-                                <th scope="col" class="pb-3 text-right w-32">P. unit. (sin IVA)</th>
-                                <th scope="col" class="pb-3 text-right w-32">Importe (sin IVA)</th>
+                                <th scope="col" class="pb-3 text-right w-32">P. unitario</th>
+                                <th scope="col" class="pb-3 text-right w-32">Importe</th>
                             </tr>
                         </thead>
                         <tbody id="previewTableBody" class="divide-y divide-slate-100 text-slate-700">
@@ -293,15 +301,15 @@
 
                     <div class="w-full sm:w-80 shrink-0 space-y-2 text-right bg-slate-50 p-4 rounded-xl border border-slate-200/80">
                         <div class="flex justify-between items-center gap-3 text-xs text-slate-600">
-                            <span class="whitespace-nowrap">Alquiler + entrega (sin IVA):</span>
+                            <span class="whitespace-nowrap">Subtotal:</span>
                             <span id="previewSubtotal" class="font-semibold text-slate-800 whitespace-nowrap">0,00 €</span>
                         </div>
-                        <div class="flex justify-between items-center gap-3 text-xs text-slate-600">
+                        <div id="ivaRow" class="flex justify-between items-center gap-3 text-xs text-slate-600">
                             <span id="previewIvaLabel" class="whitespace-nowrap">IVA (21 %):</span>
                             <span id="previewIva" class="font-semibold text-slate-800 whitespace-nowrap">0,00 €</span>
                         </div>
                         <div class="flex justify-between items-center gap-3 text-xs text-slate-600">
-                            <span class="whitespace-nowrap">Fianza reembolsable (sin IVA):</span>
+                            <span class="whitespace-nowrap">Fianza reembolsable:</span>
                             <span id="previewFianza" class="font-semibold text-slate-800 whitespace-nowrap">0,00 €</span>
                         </div>
                         <div class="flex justify-between items-center gap-3 text-sm font-extrabold text-slate-900 pt-2 border-t border-slate-300">
@@ -317,8 +325,8 @@
                         <span>Rivas Asiste • Servicio Independiente de Movilidad</span>
                         <span>www.rivasasiste.es</span>
                     </div>
-                    <p>
-                        <strong>IVA:</strong> Los importes de alquiler y entrega se indican sin IVA; el IVA (<span id="ivaNotaTipo">21</span> %) se suma en el total. La fianza no lleva IVA porque es reembolsable.
+                    <p id="ivaLegalNote">
+                        <strong>IVA:</strong> Los importes reflejan la aplicación del IVA (<span id="ivaNotaTipo">21</span> %). La fianza no lleva IVA por tratarse de un depósito reembolsable.
                     </p>
                     <p>
                         <strong>Información de fianza y servicio:</strong> La fianza es un depósito reembolsable exigido para garantizar el buen estado y la devolución puntual del equipo de movilidad. Rivas Asiste es un servicio independiente no vinculado formalmente a centros sanitarios ni estaciones de transporte.
@@ -603,7 +611,19 @@
                     else baseCents += lineCents;
                 });
 
-                const ivaCents = Math.round(baseCents * IVA_TIPO / 100);
+                const applyIva = $('includeIva').checked;
+                const ivaCents = applyIva ? Math.round(baseCents * IVA_TIPO / 100) : 0;
+
+                // Mostrar u ocultar fila de IVA en la tabla de totales
+                const ivaRow = $('ivaRow');
+                const ivaLegalNote = $('ivaLegalNote');
+                if (applyIva) {
+                    ivaRow.classList.remove('hidden');
+                    ivaLegalNote.classList.remove('hidden');
+                } else {
+                    ivaRow.classList.add('hidden');
+                    ivaLegalNote.classList.add('hidden');
+                }
 
                 $('previewSubtotal').textContent = money(baseCents / 100);
                 $('previewIvaLabel').textContent = 'IVA (' + IVA_TIPO + ' %):';
@@ -665,6 +685,7 @@
             function generateTextSummary() {
                 const name = $('clientName').value.trim() || 'Estimado/a cliente';
                 const notes = $('budgetNotes').value.trim();
+                const applyIva = $('includeIva').checked;
 
                 let msg = `♿ *RIVAS ASISTE - PRESUPUESTO* ♿\n`;
                 msg += `📄 *Ref:* ${formatRef(budgetNumber)}\n`;
@@ -678,10 +699,12 @@
                 });
 
                 msg += `-----------------------------------\n`;
-                msg += `💰 *Alquiler + entrega (sin IVA):* ${$('previewSubtotal').textContent}\n`;
-                msg += `🧾 *IVA (${IVA_TIPO} %):* ${$('previewIva').textContent}\n`;
-                msg += `🔒 *Fianza reembolsable (sin IVA):* ${$('previewFianza').textContent}\n`;
-                msg += `📌 *TOTAL A ABONAR EN ENTREGA (IVA y fianza incluidos):* *${$('previewTotal').textContent}*\n`;
+                msg += `💰 *Subtotal:* ${$('previewSubtotal').textContent}\n`;
+                if (applyIva) {
+                    msg += `🧾 *IVA (${IVA_TIPO} %):* ${$('previewIva').textContent}\n`;
+                }
+                msg += `🔒 *Fianza reembolsable:* ${$('previewFianza').textContent}\n`;
+                msg += `📌 *TOTAL A ABONAR EN ENTREGA (fianza incluida):* *${$('previewTotal').textContent}*\n`;
                 msg += `⚠️ *Nota:* Presupuesto orientativo y no vinculante, sujeto a confirmación de disponibilidad en el momento de la reserva.\n`;
 
                 if (notes) {
@@ -773,6 +796,7 @@
                 $('clientName').value = '';
                 $('clientPhone').value = '';
                 $('budgetNotes').value = '';
+                $('includeIva').checked = false;
                 items = items.filter((i) => !i.custom);
                 budgetNumber = peekNextBudgetNumber();
                 applyPresetProduct();
@@ -856,6 +880,7 @@
                 $('clientName').addEventListener('input', updatePreview);
                 $('clientPhone').addEventListener('input', updatePreview);
                 $('budgetNotes').addEventListener('input', updatePreview);
+                $('includeIva').addEventListener('change', calculateTotals);
 
                 ['quickProduct', 'quickPeriod', 'quickTransport'].forEach((id) => {
                     $(id).addEventListener('change', applyPresetProduct);
