@@ -86,7 +86,7 @@
             },
             {
               "@type": "Question",
-              "name": "¿Cuál es el importe de la fianza?",
+              "name": "¿Cuál est el importe de la fianza?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Se requiere una fianza reembolsable de entre 10 € y 25 € según el producto. Se devuelve al finalizar el alquiler, una vez comprobado el estado del equipo, descontando en su caso los importes justificados por daños, pérdida o penalizaciones previstos en las Condiciones del Servicio."
@@ -1587,7 +1587,7 @@
                         </div>
                         <div class="service-card-footer">
                             <div class="price-tag">
-                                Desde <strong>6,00 € / día + IVA</strong>
+                                Desde <strong>6,00 € / día</strong>
                             </div>
                             <a href="#calculadora" class="btn btn-secondary">Calcular</a>
                         </div>
@@ -1606,7 +1606,7 @@
                         </div>
                         <div class="service-card-footer">
                             <div class="price-tag">
-                                Desde <strong>5,00 € / día + IVA</strong>
+                                Desde <strong>5,00 € / día</strong>
                             </div>
                             <a href="#calculadora" class="btn btn-secondary">Calcular</a>
                         </div>
@@ -1625,7 +1625,7 @@
                         </div>
                         <div class="service-card-footer">
                             <div class="price-tag">
-                                Desde <strong>3,00 € / día + IVA</strong>
+                                Desde <strong>3,00 € / día</strong>
                             </div>
                             <a href="#calculadora" class="btn btn-secondary">Calcular</a>
                         </div>
@@ -1671,11 +1671,11 @@
                         <label for="calc-transporte">Punto y modalidad de entrega:</label>
                         <select id="calc-transporte" class="form-control" onchange="calcularPrecio()">
                             <option value="0" selected>Recogida directa en local (0,00 €)</option>
-                            <option value="22">Entrega a domicilio en Rivas-Vaciamadrid (+22,00 € + IVA)</option>
-                            <option value="25">Entrega en Hospital Universitario HM Rivas (+25,00 € + IVA)</option>
-                            <option value="40">Entrega en Hospital Universitario del Sureste, Arganda (+40,00 € + IVA)</option>
-                            <option value="50">Entrega en estación AVE de Atocha (+50,00 € + IVA)</option>
-                            <option value="60">Entrega en estación AVE de Chamartín (+60,00 € + IVA)</option>
+                            <option value="22">Entrega a domicilio en Rivas-Vaciamadrid (+22,00 €)</option>
+                            <option value="25">Entrega en Hospital Universitario HM Rivas (+25,00 €)</option>
+                            <option value="40">Entrega en Hospital Universitario del Sureste, Arganda (+40,00 €)</option>
+                            <option value="50">Entrega en estación AVE de Atocha (+50,00 €)</option>
+                            <option value="60">Entrega en estación AVE de Chamartín (+60,00 €)</option>
                         </select>
                     </div>
                 </div>
@@ -1695,23 +1695,19 @@
                             <strong id="res-transporte">0,00 €</strong>
                         </div>
                         <div class="res-row">
-                            <span id="res-iva-label">IVA (21 %):</span>
-                            <strong id="res-iva">1,26 €</strong>
-                        </div>
-                        <div class="res-row">
                             <span>Fianza reembolsable:</span>
                             <strong id="res-fianza">25,00 €</strong>
                         </div>
 
                         <div class="res-total-box">
-                            <p>Total a abonar en la entrega (IVA y fianza incluidos)</p>
-                            <div class="res-total-price" id="res-total">32,26 €</div>
+                            <p>Total a abonar en la entrega (fianza incluida)</p>
+                            <div class="res-total-price" id="res-total">31,00 €</div>
                         </div>
                         <p class="calc-note">El suplemento de entrega incluye la entrega y la recogida. La fianza es reembolsable conforme a las Condiciones del Servicio.</p>
                     </div>
 
                     <button onclick="enviarCalculoWhatsApp()" class="btn btn-whatsapp" style="width: 100%;">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg> Confirmar por WhatsApp
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2 z"/></svg> Confirmar por WhatsApp
                     </button>
                 </div>
             </div>
@@ -1835,7 +1831,7 @@
     </main>
 
     <!-- Modales Legales -->
-        <div class="modal-overlay" id="privacyModal" onclick="handleModalOutsideClick(event, 'privacyModal')">
+    <div class="modal-overlay" id="privacyModal" onclick="handleModalOutsideClick(event, 'privacyModal')">
         <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
             <div class="modal-header">
                 <h3 id="privacyModalTitle">Política de Privacidad y Protección de Datos</h3>
@@ -1843,7 +1839,7 @@
             </div>
             <div class="modal-body">
 <h4>1. Responsable del tratamiento</h4>
-<p><strong>Titular:</strong> <!--PENDIENTE: titular-->Pendiente de alta (en trámite) · <strong>NIF/CIF:</strong> <!--PENDIENTE: NIF-->Pendiente de alta (en trámite) · <strong>Domicilio:</strong> <!--PENDIENTE: domicilio-->Pendiente de alta (en trámite) · <strong>Teléfono:</strong> 601 235 215 · <strong>Correo electrónico:</strong> jorgempleo@hotmail.es. En adelante, «Rivas Asiste». No se ha designado Delegado de Protección de Datos por no ser obligatorio.</p>
+<p><strong>Titular:</strong> Pendiente de alta (en trámite) · <strong>NIF/CIF:</strong> Pendiente de alta (en trámite) · <strong>Domicilio:</strong> Pendiente de alta (en trámite) · <strong>Teléfono:</strong> 601 235 215 · <strong>Correo electrónico:</strong> jorgempleo@hotmail.es. En adelante, «Rivas Asiste». No se ha designado Delegado de Protección de Datos por no ser obligatorio.</p>
 <h4>2. Datos que tratamos</h4>
 <p>Nombre y apellidos, teléfono, producto de interés, detalles del viaje o dirección de entrega y los demás datos que usted facilite voluntariamente. <strong>No solicitamos datos de salud</strong>; le rogamos que no los incluya en sus mensajes. Si realiza la solicitud en nombre de otra persona, declara estar legitimado para ello y haberla informado de este tratamiento.</p>
 <h4>3. Finalidades</h4>
@@ -1878,7 +1874,7 @@
             </div>
             <div class="modal-body">
 <h4>1. Datos identificativos (Ley 34/2002, LSSI-CE)</h4>
-<p><strong>Titular:</strong> <!--PENDIENTE: titular-->Pendiente de alta (en trámite)<br><strong>NIF/CIF:</strong> <!--PENDIENTE: NIF-->Pendiente de alta (en trámite)<br><strong>Domicilio:</strong> <!--PENDIENTE: domicilio-->Pendiente de alta (en trámite)<br><strong>Teléfono:</strong> 601 235 215<br><strong>Correo electrónico:</strong> jorgempleo@hotmail.es<br><strong>Sitio web:</strong> https://rivasasiste.es<br><strong>Actividad:</strong> alquiler de sillas de ruedas, andadores y muletas.</p>
+<p><strong>Titular:</strong> Pendiente de alta (en trámite)<br><strong>NIF/CIF:</strong> Pendiente de alta (en trámite)<br><strong>Domicilio:</strong> Pendiente de alta (en trámite)<br><strong>Teléfono:</strong> 601 235 215<br><strong>Correo electrónico:</strong> jorgempleo@hotmail.es<br><strong>Sitio web:</strong> https://rivasasiste.es<br><strong>Actividad:</strong> alquiler de sillas de ruedas, andadores y muletas.</p>
 <h4>2. Condiciones de uso</h4>
 <p>El acceso y uso de esta web atribuye la condición de usuario e implica la aceptación de este Aviso Legal. El usuario se compromete a hacer un uso lícito y diligente de la web y a no emplearla para fines contrarios a la ley o que puedan dañar a Rivas Asiste o a terceros.</p>
 <h4>3. Propiedad intelectual e industrial</h4>
@@ -1929,11 +1925,11 @@
             </div>
             <div class="modal-body">
 <h4>1. Objeto</h4>
-<p>Estas condiciones regulan el alquiler de sillas de ruedas, andadores y muletas por parte de Rivas Asiste (<!--PENDIENTE: titular y NIF-->titular y NIF pendientes de alta, en trámite) al cliente. Son aplicables las vigentes en la fecha de la reserva. Se trata de productos de apoyo a la movilidad; Rivas Asiste no presta asesoramiento sanitario y la elección del producto es responsabilidad del cliente.</p>
+<p>Estas condiciones regulan el alquiler de sillas de ruedas, andadores y muletas por parte de Rivas Asiste (titular y NIF pendientes de alta, en trámite) al cliente. Son aplicables las vigentes en la fecha de la reserva. Se trata de productos de apoyo a la movilidad; Rivas Asiste no presta asesoramiento sanitario y la elección del producto es responsabilidad del cliente.</p>
 <h4>2. Reserva y disponibilidad</h4>
 <p>La solicitud por la web, WhatsApp o correo no es vinculante hasta que Rivas Asiste la confirme. Todos los servicios, incluidos los urgentes y los de estación AVE, están sujetos a disponibilidad y coordinación previa. Las imágenes son orientativas y el modelo puede variar.</p>
 <h4>3. Precio y pago</h4>
-<p>Los precios se indican sin IVA y el total a abonar incluye el IVA aplicable. Los precios se confirman antes de la entrega y la calculadora es orientativa. Los gastos de entrega se indican por separado según el punto elegido. La forma de pago se comunicará al confirmar la reserva.</p>
+<p>Los precios se confirman antes de la entrega y la calculadora es orientativa. Los gastos de entrega se indican por separado según el punto elegido. La forma de pago se comunicará al confirmar la reserva.</p>
 <h4>4. Fianza</h4>
 <p>Se abona en la entrega (entre 10 € y 25 € según el producto). Se devuelve en el momento de la devolución si el equipo puede revisarse en el acto y, en otro caso, en un máximo de 7 días naturales. Rivas Asiste podrá descontar los importes <strong>justificados</strong> por daños, pérdida, limpieza extraordinaria, días de retraso o penalizaciones previstas en estas condiciones; si el perjuicio superase la fianza, el cliente abonará la diferencia previa justificación.</p>
 <h4>5. Entrega y recogida</h4>
@@ -2014,7 +2010,7 @@
                         ¿Cómo funciona en Atocha o Chamartín?
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_productos')">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
                         ¿Qué tipos de equipos tenéis y precios?
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_urgencias')">
@@ -2022,7 +2018,7 @@
                         Necesito el material urgentemente hoy
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_fianza')">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8s0 0 0 0z"/></svg>
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8s0 0 0 0 z"/></svg>
                         ¿Cómo funciona la fianza y devolución?
                     </button>
                 </div>
@@ -2099,10 +2095,6 @@
         }
 
         // Calculadora de Tarifas
-        // Tipo de IVA aplicado al alquiler y a la entrega (la fianza no lleva IVA).
-        // Debe coincidir con el del presupuestador (presupuestos.html).
-        const IVA_TIPO = 21;
-
         const tarifas = {
             silla: {
                 fianza: 25,
@@ -2131,14 +2123,10 @@
             const entrega = aCentimos(parseFloat(document.getElementById('calc-transporte').value));
             const fianza = aCentimos(item.fianza);
 
-            const base = alquiler + entrega;                  // sujeto a IVA
-            const iva = Math.round(base * IVA_TIPO / 100);    // IVA sobre alquiler + entrega
-            const total = base + iva + fianza;                // la fianza va fuera de la base
+            const total = alquiler + entrega + fianza;
 
             document.getElementById('res-alquiler').innerText = eur(alquiler);
             document.getElementById('res-transporte').innerText = eur(entrega);
-            document.getElementById('res-iva-label').innerText = 'IVA (' + IVA_TIPO + ' %):';
-            document.getElementById('res-iva').innerText = eur(iva);
             document.getElementById('res-fianza').innerText = eur(fianza);
             document.getElementById('res-total').innerText = eur(total);
         }
@@ -2160,9 +2148,8 @@
                           `*Desglose:*\n` +
                           `- Alquiler: ${document.getElementById('res-alquiler').innerText}\n` +
                           `- Entrega: ${document.getElementById('res-transporte').innerText}\n` +
-                          `- IVA (${IVA_TIPO} %): ${document.getElementById('res-iva').innerText}\n` +
                           `- Fianza reembolsable: ${document.getElementById('res-fianza').innerText}\n` +
-                          `• *TOTAL A ABONAR (IVA y fianza incluidos):* ${document.getElementById('res-total').innerText}\n\n` +
+                          `• *TOTAL A ABONAR (fianza incluida):* ${document.getElementById('res-total').innerText}\n\n` +
                           `Deseo confirmar la disponibilidad a través de WhatsApp.`;
 
             const url = `https://wa.me/34601235215?text=${encodeURIComponent(texto)}`;
@@ -2249,9 +2236,9 @@
                 agregarMensaje("¿Qué tipos de equipos tenéis y precios?", "user");
                 setTimeout(() => {
                     agregarMensaje("Disponemos de material higienizado antes de cada alquiler:<br><br>" +
-                                   "• <strong>Sillas de ruedas manuales:</strong> Desde 6 €/día + IVA<br>" +
-                                   "• <strong>Andadores y Rollators:</strong> Desde 5 €/día + IVA<br>" +
-                                   "• <strong>Muletas y Bastones:</strong> Desde 3 €/día + IVA<br><br>" +
+                                   "• <strong>Sillas de ruedas manuales:</strong> Desde 6 €/día<br>" +
+                                   "• <strong>Andadores y Rollators:</strong> Desde 5 €/día<br>" +
+                                   "• <strong>Muletas y Bastones:</strong> Desde 3 €/día<br><br>" +
                                    "Ofrecemos tarifas por periodos diarios, semanales o mensuales.", "bot");
                     actualizarOpciones(`
                         <button class="chat-opt-btn" onclick="navegarChat('ir_calculadora')">
@@ -2346,11 +2333,11 @@
                 </div>
                 <div class="chat-options" id="chatOptions">
                     <button class="chat-opt-btn" onclick="navegarChat('menu_estaciones')">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.45l8.15 14.05H3.85L12 5.45zM11 10h2v4h-2zm0 5h2v2h-2z"/></svg>
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.45l8.15 14.05H3.85L12 5.45zM11 10h2v4h-2zm0 5h2v2h-2 z"/></svg>
                         ¿Cómo funciona en Atocha o Chamartín?
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_productos')">
-                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
                         ¿Qué tipos de equipos tenéis y precios?
                     </button>
                     <button class="chat-opt-btn" onclick="navegarChat('menu_urgencias')">
